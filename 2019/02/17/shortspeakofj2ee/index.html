@@ -136,6 +136,7 @@
 <p>如上图，当第一个符合该servlet应服务的请求到达时，才将该servlet的init方法调用，之后的请求到达时，不再调用该方法，直接进入service方法处理。当受到终止服务时，调用destroy方法。</p>
 <h4 id="Filter过滤器"><a href="#Filter过滤器" class="headerlink" title="Filter过滤器"></a>Filter过滤器</h4><p>用户验证、表单验证、编码转换等对于请求的预处理在许多处理逻辑中都具有，Filter则将其解耦。Filter的设计核心是职责链模式，对于某个请求，需要进行多步过滤，为了让每一个过滤器都有机会过滤，将各个过滤器按顺序排为过滤器链(FilterChain)。</p>
 <p>Filter不仅仅具有前过滤，还拥有后过滤，也就是在其他下级过滤器或Servlet处理完之后再进行过滤，以达到重新编码、Cookie设置等操作。</p>
+<p><img src="https://s2.ax1x.com/2019/02/17/kydGge.png" alt="img"></p>
 <p>（国标上要求国内网站都要以GBK编码，但一般程序却善于处理UTF编码，故编解码问题是一个令人头疼的问题，编写一个编解码过滤器，将会巧妙解决该问题）</p>
 
     </div>
