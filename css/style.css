@@ -790,20 +790,20 @@ hr {
 .post .post-content .post-excerpt {
   position: relative;
   min-height: 140px;
-  margin-right: 210px;
+  margin-right: 0px;
   overflow: hidden;
 }
 .post .post-content .post-thumbnail {
   position: absolute;
   top: 0;
   right: 0;
-  width: 200px;
-  height: 140px;
+  width: 0px;
+  height: 0px;
   overflow: hidden;
 }
 .post .post-content .post-thumbnail .thumbnail {
-  width: 200px;
-  height: 140px;
+  width: 0px;
+  height: 0px;
   border: 0;
   -ms-transition: 0.5s;
   -moz-transition: 0.5s;
