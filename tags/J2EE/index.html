@@ -191,124 +191,6 @@
 </article>
 
     
-        <!-- 文章列表 item -->
-<article class="post">
-    <header>
-        <!-- 标签这有且只能显示一个 -->
-        
-            <a href="javascript: void(0);" class="cat">未分类</a>
-        
-        <!-- 文章标题 -->
-        
-    <h3 class="post-title">
-    	<a href="/2019/02/07/2019/">
-    		2019
-    	</a>
-        
-    </h3>
-
-    </header>
-    <p class="post-meta">
-        HeroHR 发表于
-        <time datetime="2019-02-07T11:01:31.000Z">2019-02-07</time>
-        &nbsp;&nbsp;
-        <span class="post-tags">
-            标签：
-            
-    
-        <a href="/tags/J2EE/" title="J2EE">J2EE</a>
-    
-
-        </span>
-    </p>
-
-    <div class="post-content">
-        <div class="post-excerpt">
-            
-                <h1 id="Hello-2019"><a href="#Hello-2019" class="headerlink" title="Hello 2019"></a>Hello 2019</h1><h2 id="猪年大吉"><a href="#猪年大吉" class="headerlink" title="猪年大吉"></a>猪年大吉</h2>
-            
-            <p class="more">
-                <a href="/2019/02/07/2019/">阅读剩下更多</a>
-            </p>
-        </div>
-        <div class="post-thumbnail" data-img>
-            <a href="/2019/02/07/2019/" title="2019">
-                
-                    <img class="thumbnail" src="/img/default.png" data-echo="/img/thumbnail/7.jpg" alt="默认配图">
-                
-            </a>
-        </div>
-    </div>
-</article>
-
-    
-        <!-- 文章列表 item -->
-<article class="post">
-    <header>
-        <!-- 标签这有且只能显示一个 -->
-        
-            <a href="javascript: void(0);" class="cat">未分类</a>
-        
-        <!-- 文章标题 -->
-        
-    <h3 class="post-title">
-    	<a href="/2019/01/08/goJson/">
-    		golang Json包（一）
-    	</a>
-        
-    </h3>
-
-    </header>
-    <p class="post-meta">
-        HeroHR 发表于
-        <time datetime="2019-01-08T10:10:15.000Z">2019-01-08</time>
-        &nbsp;&nbsp;
-        <span class="post-tags">
-            标签：
-            
-    
-        <a href="/tags/J2EE/" title="J2EE">J2EE</a>
-    
-
-        </span>
-    </p>
-
-    <div class="post-content">
-        <div class="post-excerpt">
-            
-                <p>Golang标准库里的json包位于<code>&quot;encoding/json&quot;</code></p>
-<h2 id="Struct-to-Json"><a href="#Struct-to-Json" class="headerlink" title="Struct to Json"></a>Struct to Json</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">在进行对象转换为 JSON 的过程中，会遵循如下几条规则：</span><br><span class="line"></span><br><span class="line">　　　　• 布尔型转换为 JSON 后仍是布尔型　， 如true -&gt; true</span><br><span class="line"></span><br><span class="line">　　　　• 浮点型和整数型转换后为JSON里面的常规数字，如 1.23 -&gt; 1.23</span><br><span class="line"></span><br><span class="line">　　　　• 字符串将以UTF-8编码转化输出为Unicode字符集的字符串，特殊字符比如&lt;将会被转义为\u003c</span><br><span class="line"></span><br><span class="line">　　　　• 数组和切片被转换为JSON 里面的数组，[]byte类会被转换为base64编码后的字符串，slice的零值被转换为null</span><br><span class="line"></span><br><span class="line">　　　　• 结构体会转化为JSON对象，并且只有结构体里边以大写字母开头的可被导出的字段才会被转化输出，而这些可导出的字段会作为JSON对象的字符串索引</span><br><span class="line"></span><br><span class="line">　　　　• 转化一个map 类型的数据结构时，该数据的类型必须是 map[string]T（T 可以是encoding/json 包支持的任意数据类型）</span><br></pre></td></tr></table></figure>
-<h3 id="导出"><a href="#导出" class="headerlink" title="导出"></a>导出</h3><p>定义一个结构体</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> User <span class="keyword">struct</span>&#123;</span><br><span class="line">    Id <span class="keyword">int</span></span><br><span class="line">    Username <span class="keyword">string</span></span><br><span class="line">    Sex <span class="keyword">int</span></span><br><span class="line">    password <span class="keyword">string</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    user := User&#123;<span class="number">1</span>, <span class="string">"Foo"</span>, <span class="number">1</span>&#125;</span><br><span class="line"></span><br><span class="line">    data, err := json.Marshal(user)</span><br><span class="line">    <span class="keyword">if</span> err != <span class="literal">nil</span>&#123;</span><br><span class="line">        fmt.Println(err)</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    &#125;</span><br><span class="line">    fmt.Println(<span class="keyword">string</span>(data))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;<span class="attr">"Id"</span>:<span class="number">1</span>,<span class="attr">"Username"</span>:<span class="string">"Foo"</span>,<span class="attr">"Sex"</span>:<span class="number">1</span>&#125;</span><br></pre></td></tr></table></figure>
-<p>根据上面的转换规则，只有首字母大写的字段才能被到处到js里，所以password是不能被导出的。</p>
-<p>但是根据大多数json的命名方式，首字母大写是很少见的。如果需要指定导出时候的字段名，那么在定义结构体的时候增加一个tag</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> User <span class="keyword">struct</span>&#123;</span><br><span class="line">    Id <span class="keyword">int</span> <span class="string">`json:"id"`</span></span><br><span class="line">    Username <span class="keyword">string</span> <span class="string">`json:"username"`</span></span><br><span class="line">    Sex <span class="keyword">int</span> <span class="string">`json:"-"`</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;<span class="attr">"id"</span>:<span class="number">1</span>,<span class="attr">"username"</span>:<span class="string">"Foo"</span>&#125;</span><br></pre></td></tr></table></figure>
-<p>可以在结构体字段的后面追加一个tag，格式为<code>json:”$filedname”</code>，那么转换的时候就会使用tag里面的字段名。如果不想导出某个字段的时候，需要设置他的字段名为<code>-</code>。</p>
-<h2 id="Json-to-Struct"><a href="#Json-to-Struct" class="headerlink" title="Json to Struct"></a>Json to Struct</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">• json.Unmarshal() 函数会根据一个约定的顺序查找目标结构中的字段，如果找到一个即发生匹配。那什么是找到了呢？关于“找到了”又有如下的规则：假设一个JSON对象有个名为&quot;Foo&quot;的索引，要将&quot;Foo&quot;所对应的值填充到目标结构体的目标字段上，json.Unmarshal() 将会遵循如下顺序进行查找匹配</span><br><span class="line"></span><br><span class="line">　　　　　　§ 一个包含Foo 标签的字段</span><br><span class="line"></span><br><span class="line">　　　　　　§  一个名为Foo 的字段</span><br><span class="line"></span><br><span class="line">　　　　　　§ 一个名为Foo 或者Foo 或者除了首字母其他字母不区分大小写的名为Foo 的字段。 这些字段在类型声明中必须都是以大写字母开头、可被导出的字段。</span><br><span class="line"></span><br><span class="line">　　　　注意：如果JSON中的字段在Go目标类型中不存在，json.Unmarshal() 函数在解码过程中会丢弃该字段。</span><br><span class="line"></span><br><span class="line">　　　　• 当JSON 的结构是未知的时候，会遵循如下规则：</span><br><span class="line"></span><br><span class="line">　　　　　　§ JSON中的布尔值将会转换为Go中的bool类型</span><br><span class="line"></span><br><span class="line">　　　　　　§ 数值会被转换为Go中的float64类型</span><br><span class="line"></span><br><span class="line">　　　　　　§ 字符串转换后还是string类型</span><br><span class="line"></span><br><span class="line">　　　　　　§ JSON数组会转换为[]interface&#123;&#125; 类型</span><br><span class="line"></span><br><span class="line">　　　　　　§ JSON对象会转换为map[string]interface&#123;&#125;类型</span><br><span class="line"></span><br><span class="line">　　　　　　§ null值会转换为nil</span><br><span class="line"></span><br><span class="line">　　　　注意：在Go的标准库encoding/json包中，允许使用map[string]interface&#123;&#125;和[]interface&#123;&#125; 类型的值来分别存放未知结构的JSON对象或数组</span><br></pre></td></tr></table></figure>
-<h3 id="导入"><a href="#导入" class="headerlink" title="导入"></a>导入</h3><p>现在有一json<code>{&quot;sex&quot;: true, &quot;username&quot;: &quot;chenjie&quot;}</code></p>
-<p>定义一个结构体，</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> User <span class="keyword">struct</span>&#123;</span><br><span class="line">    Id <span class="keyword">int</span> <span class="string">`json:"-"`</span></span><br><span class="line">    Username <span class="keyword">string</span> <span class="string">`json:"username"`</span></span><br><span class="line">    Sex <span class="keyword">bool</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    data := <span class="string">`&#123;"sex": true, "username": "chenjie"&#125;`</span></span><br><span class="line">    <span class="keyword">var</span> user User</span><br><span class="line">    err  := json.Unmarshal([]<span class="keyword">byte</span>(data), &amp;user)</span><br><span class="line">    <span class="keyword">if</span> err != <span class="literal">nil</span>&#123;</span><br><span class="line">        fmt.Println(err)</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    &#125;</span><br><span class="line">    fmt.Println(user.Sex, user.Username)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>json里面的sex和Sex字段对应，useranme和Username对应。注意到，如果json里面字段名小写，而结构体字段名首字母大写，那么还是可以成功转换的，可以参考上面的转换规则。</p>
-<p>如果是一个json数组的话，那么user这个地方应该变成users切片，并传入users切片的地址。</p>
-
-            
-            <p class="more">
-                <a href="/2019/01/08/goJson/">阅读剩下更多</a>
-            </p>
-        </div>
-        <div class="post-thumbnail" data-img>
-            <a href="/2019/01/08/goJson/" title="golang Json包（一）">
-                
-                    <img class="thumbnail" src="/img/default.png" data-echo="/img/thumbnail/8.jpg" alt="默认配图">
-                
-            </a>
-        </div>
-    </div>
-</article>
-
-    
 
     
     <nav class="page-navigator">
@@ -336,17 +218,17 @@
         <!-- 文章标签 -->
 <div class="widget-bd tag-wrap">
   
-    <a class="tag-item" href="/tags/J2EE/" title="J2EE">J2EE (3)</a>
-  
     <a class="tag-item" href="/tags/linux/" title="linux">linux (4)</a>
   
     <a class="tag-item" href="/tags/server/" title="server">server (7)</a>
   
     <a class="tag-item" href="/tags/HTTP/" title="HTTP">HTTP (3)</a>
   
-    <a class="tag-item" href="/tags/golang/" title="golang">golang (2)</a>
+    <a class="tag-item" href="/tags/golang/" title="golang">golang (3)</a>
   
     <a class="tag-item" href="/tags/python/" title="python">python (5)</a>
+  
+    <a class="tag-item" href="/tags/J2EE/" title="J2EE">J2EE (1)</a>
   
 </div>
     </section>
