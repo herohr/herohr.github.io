@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=11,IE=10,IE=9,IE=8">
+    <meta name="baidu-site-verification" content="dIcXMeY8Ya">
+    
+    <title>`golang`标签下的文章 | 叁拾柒</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <meta name="keywords" content="37a, Python, Web, herohr, 后段技术">
+    <meta name="description" content="37a的个人博客">
+
+    
+    <link rel="alternative" href="/atom.xml" title="叁拾柒" type="application/atom+xml">
+    
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link rel="stylesheet" href="/css/style.css">
+    <!--[if lt IE 9]>
+    <script src="/js/html5.js"></script>
+    <![endif]-->
+    
+<script>
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?fd459238242776d173cdc64918fb32f2";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+</head>
+</html>
+<body class="home">
+    <!--[if lt IE 9]>
+    <div class="browsehappy">
+        当前网页 <strong>不支持</strong>
+        你正在使用的浏览器. 为了正常的访问, 请 <a href="http://browsehappy.com/">升级你的浏览器</a>.
+    </div>
+    <![endif]-->
+
+    <!-- 博客头部 -->
+    <header class="header">
+    <section class="container header-main">
+        <div class="logo">
+            <a href="/">
+                <div class="cover">
+                    <span class="name">叁拾柒</span>
+                    <span class="description">My Life Getting Better</span>
+                </div>
+            </a>
+        </div>
+        <div class="dropnav icon-paragraph-justify" id="JELON__btnDropNav"></div>
+        <ul class="menu hidden" id="JELON__menu">
+            
+            <li rel="/tags/golang/index.html" class="item ">
+                <a href="/" title="首页" class="icon-home">&nbsp;首页</a>
+            </li>
+            
+            <li rel="/tags/golang/index.html" class="item ">
+                <a href="/lab/" title="代码" class="icon-lab">&nbsp;代码</a>
+            </li>
+            
+            <li rel="/tags/golang/index.html" class="item ">
+                <a href="/photo/" title="掠影" class="icon-about">&nbsp;掠影</a>
+            </li>
+            
+            <li rel="/tags/golang/index.html" class="item ">
+                <a href="/about/" title="关于" class="icon-comment">&nbsp;关于</a>
+            </li>
+            
+        </ul>
+        <div class="profile clearfix">
+            <div class="feeds fl">
+                
+                
+                <p class="links">
+                    
+                        <a href="https://github.com/herohr" target="_blank">Github</a>
+                        |
+                    
+                        <a href="2008wil@163.com" target="_blank">Email</a>
+                        
+                    
+                </p>
+                <p class="sns">
+                    
+                        <a href="https://www.facebook.com/profile.php?id=100011855760219&amp;ref=bookmarks" class="qqweibo" target="_blank"><b>■</b> Facebook</a>
+                    
+                    <a href="javascript: void(0);" class="wechat">
+                        <b>■</b>
+                        微信
+                        <span class="popover">
+                            <img src="/img/wechat_mp.jpg" width="120" height="120" alt="我的微信号">
+                            <i class="arrow"></i>
+                        </span>
+                    </a>
+                </p>
+                
+            </div>
+            <div class="avatar fr">
+                <img src="/img/jelon.jpg" alt="avatar" title="Jelon">
+            </div>
+        </div>
+    </section>
+</header>
+
+
+    <!-- 博客正文 -->
+    <div class="container body clearfix">
+        <section class="content">
+            <div class="content-main widget">
+                <!-- 按标签分类 -->
+
+    <h3 class="widget-hd">
+        <strong>
+            
+                `golang`标签下的文章
+            
+        </strong>
+    </h3>
+    
+        <!-- 文章列表 item -->
+<article class="post">
+    <header>
+        <!-- 标签这有且只能显示一个 -->
+        
+            <a href="javascript: void(0);" class="cat">未分类</a>
+        
+        <!-- 文章标题 -->
+        
+    <h3 class="post-title">
+    	<a href="/2017/12/25/goPointerRecverImpl/">
+    		Golang 具有Pointer Receiver方法的结构体如何实现接口
+    	</a>
+        
+    </h3>
+
+    </header>
+    <p class="post-meta">
+        HeroHR 发表于
+        <time datetime="2017-12-24T16:00:00.000Z">2017-12-25</time>
+        &nbsp;&nbsp;
+        <span class="post-tags">
+            标签：
+            
+    
+        <a href="/tags/golang/" title="golang">golang</a>
+    
+
+        </span>
+    </p>
+
+    <div class="post-content">
+        <div class="post-excerpt">
+            
+                <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Stringer <span class="keyword">interface</span> &#123;</span><br><span class="line">    String() <span class="keyword">string</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> MyType <span class="keyword">struct</span> &#123;</span><br><span class="line">    value <span class="keyword">string</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(m *MyType)</span> <span class="title">String</span><span class="params">()</span> <span class="title">string</span></span> &#123; <span class="keyword">return</span> m.value &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">m := MyType&#123;value: <span class="string">"something"</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> s Stringer</span><br><span class="line">s = m <span class="comment">// cannot use m (type MyType) as type Stringer in assignment:</span></span><br><span class="line">      <span class="comment">//   MyType does not implement Stringer (String method has pointer receiver)</span></span><br></pre></td></tr></table></figure>
+<p>我们可以看到，String()方法具有一个pointer receiver，这导致了程序发生了运行时错误。</p>
+<p>实际上，<em>MyType是一个指针类型，而MyType是一个结构体。是</em>MyType实现了Stringer接口，而不是MyType。</p>
+<p>所以，上面的代码改成这样就可以运行了</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">s = &amp;m</span><br><span class="line">fmt.Println(s)</span><br></pre></td></tr></table></figure>
+<p>由于&amp;m (*MyType类型)实现了Stringer接口，所以他可以赋值给s (Stringer接口)。</p>
+<h2 id="使某个结构体实现接口"><a href="#使某个结构体实现接口" class="headerlink" title="使某个结构体实现接口"></a>使某个结构体实现接口</h2><p>上面的MyType结构体依然没有实现Stringer接口。</p>
+<p>但我们依然想要某个结构体实现这个接口呢？</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> MyType2 <span class="keyword">struct</span>&#123;</span><br><span class="line">    *MyType</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这是一个继承与 <em>MyType的一个结构体，显然，由于 </em>MyType 实现了Stringer接口，所以MyType2结构体就实现了接口！</p>
+<p>在使用MyType2的时候，注意先初始化MyType，再建立结构体MyType2，避免空指针异常的发生。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">m := MyType&#123;value: &quot;something&quot;&#125;</span><br><span class="line">m2 := MyType2&#123;MyType: &amp;m&#125;</span><br><span class="line"></span><br><span class="line">var s Stringer</span><br><span class="line">s = m2</span><br></pre></td></tr></table></figure>
+<p>解答来源：<a href="https://stackoverflow.com/questions/40823315/go-x-does-not-implement-y-method-has-a-pointer-receiver" target="_blank" rel="noopener">https://stackoverflow.com/questions/40823315/go-x-does-not-implement-y-method-has-a-pointer-receiver</a></p>
+
+            
+            <p class="more">
+                <a href="/2017/12/25/goPointerRecverImpl/">阅读剩下更多</a>
+            </p>
+        </div>
+        <div class="post-thumbnail" data-img>
+            <a href="/2017/12/25/goPointerRecverImpl/" title="Golang 具有Pointer Receiver方法的结构体如何实现接口">
+                
+                    <img class="thumbnail" src="/img/default.png" data-echo="/img/thumbnail/5.jpg" alt="默认配图">
+                
+            </a>
+        </div>
+    </div>
+</article>
+
+    
+        <!-- 文章列表 item -->
+<article class="post">
+    <header>
+        <!-- 标签这有且只能显示一个 -->
+        
+            <a href="javascript: void(0);" class="cat">未分类</a>
+        
+        <!-- 文章标题 -->
+        
+    <h3 class="post-title">
+    	<a href="/2017/08/02/goStructnote/">
+    		Go中的结构体方法与接口
+    	</a>
+        
+    </h3>
+
+    </header>
+    <p class="post-meta">
+        HeroHR 发表于
+        <time datetime="2017-08-01T16:00:00.000Z">2017-08-02</time>
+        &nbsp;&nbsp;
+        <span class="post-tags">
+            标签：
+            
+    
+        <a href="/tags/golang/" title="golang">golang</a>
+    
+
+        </span>
+    </p>
+
+    <div class="post-content">
+        <div class="post-excerpt">
+            
+                <p>Go语言中的对象用结构体来表现，而对象的方法则是用函数来表现。</p>
+<h2 id="定义结构体"><a href="#定义结构体" class="headerlink" title="定义结构体"></a>定义结构体</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Circle <span class="keyword">struct</span>&#123;</span><br><span class="line">    r <span class="keyword">float32</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>和C语言非常相似</p>
+<h2 id="定义方法"><a href="#定义方法" class="headerlink" title="定义方法"></a><strong>定义方法</strong></h2><h3 id="值传递方法"><a href="#值传递方法" class="headerlink" title="值传递方法"></a>值传递方法</h3><p>值传递方法，即进入函数调用栈时再次为结构体划分内存，然后复制结构体。在值传递方法内修改属性，并不改变外部结构体的属性。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(c Circle)</span> <span class="title">area</span><span class="params">()</span> <span class="title">float32</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">3.14</span> * c.r * c.r</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="引用传递方法"><a href="#引用传递方法" class="headerlink" title="引用传递方法"></a>引用传递方法</h3><p>引用传递方法，即进入函数调用栈时，仅仅传递一个引用，对结构体的操作都将影响外部结构体。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(c *Circle)</span> <span class="title">setR</span><span class="params">(r <span class="keyword">float32</span>)</span></span>&#123;</span><br><span class="line">    c.r = r</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>总的来说，一般只读方法可以使用值传递，写方法使用引用传递。</p>
+<h2 id="定义接口"><a href="#定义接口" class="headerlink" title="定义接口"></a><strong>定义接口</strong></h2><p>实现了某些方法的对象，他们可以抽象出来一个接口。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Circle <span class="keyword">struct</span> &#123;</span><br><span class="line">    radius <span class="keyword">float32</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> Square <span class="keyword">struct</span> &#123;</span><br><span class="line">    sideLength <span class="keyword">float32</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(s Square)</span> <span class="title">area</span><span class="params">()</span><span class="title">float32</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> s.sideLength * s.sideLength</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(c Circle)</span> <span class="title">area</span><span class="params">()</span> <span class="title">float32</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">3.14</span> * c.radius * c.radius</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> geometry <span class="keyword">interface</span> &#123;</span><br><span class="line">    area() <span class="keyword">float32</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">printArea</span><span class="params">(g geometry)</span></span>&#123;</span><br><span class="line">    fmt.Println(g.area())</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>正方形和圆形都实现了area()的方法，所以可以定义一个几何体的接口。q实现了area方法的结构体都可以使用这个接口。</p>
+
+            
+            <p class="more">
+                <a href="/2017/08/02/goStructnote/">阅读剩下更多</a>
+            </p>
+        </div>
+        <div class="post-thumbnail" data-img>
+            <a href="/2017/08/02/goStructnote/" title="Go中的结构体方法与接口">
+                
+                    <img class="thumbnail" src="/img/default.png" data-echo="/img/thumbnail/2.jpg" alt="默认配图">
+                
+            </a>
+        </div>
+    </div>
+</article>
+
+    
+
+    
+    <nav class="page-navigator">
+        <span class="page-number current">1</span>
+    </nav>
+    
+
+
+            </div>
+
+        </section>
+        <!-- 侧栏部分 -->
+<aside class="sidebar">
+    <section class="widget">
+        <h3 class="widget-hd"><strong>文章分类</strong></h3>
+        <!-- 文章分类 -->
+<ul class="widget-bd">
+    
+</ul>
+    </section>
+
+    
+    <section class="widget">
+        <h3 class="widget-hd"><strong>热门标签</strong></h3>
+        <!-- 文章标签 -->
+<div class="widget-bd tag-wrap">
+  
+    <a class="tag-item" href="/tags/J2EE/" title="J2EE">J2EE (3)</a>
+  
+    <a class="tag-item" href="/tags/server/" title="server">server (4)</a>
+  
+    <a class="tag-item" href="/tags/linux/" title="linux">linux (4)</a>
+  
+    <a class="tag-item" href="/tags/HTTP-server/" title="HTTP, server">HTTP, server (3)</a>
+  
+    <a class="tag-item" href="/tags/golang/" title="golang">golang (2)</a>
+  
+    <a class="tag-item" href="/tags/python/" title="python">python (5)</a>
+  
+</div>
+    </section>
+    
+
+    
+
+    
+    <!-- 友情链接 -->
+    <section class="widget">
+        <h3 class="widget-hd"><strong>友情链接</strong></h3>
+        <!-- 文章分类 -->
+<ul class="widget-bd">
+    
+        <li>
+            <a href="https://jelon.top" target="_blank" title="Jelon个人前端小站">博客主题作者</a>
+        </li>
+    
+        <li>
+            <a href="http://www.cmsblogs.com" target="_blank" title="Java技术驿站">Java技术驿站</a>
+        </li>
+    
+</ul>
+    </section>
+    
+</aside>
+<!-- / 侧栏部分 -->
+    </div>
+
+    <!-- 博客底部 -->
+    <footer class="footer">
+    &copy;
+    
+        2016-2019
+    
+
+    <a href="/">Jelon Loves You</a>
+</footer>
+<div class="back-to-top" id="JELON__backToTop" title="返回顶部">返回顶部</div>
+
+    <!--博客js脚本 -->
+    <!-- 这里放网站js脚本 -->
+<script src="/js/main.js"></script>
+</body>
+</html>

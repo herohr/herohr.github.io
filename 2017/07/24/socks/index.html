@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=11,IE=10,IE=9,IE=8">
     <meta name="baidu-site-verification" content="dIcXMeY8Ya">
     
-    <title>照片 | 叁拾柒</title>
+    <title>啥都扫个死的搭建笔记 | 叁拾柒</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
     <meta name="keywords" content="37a, Python, Web, herohr, 后段技术">
     <meta name="description" content="37a的个人博客">
@@ -56,19 +56,19 @@
         <div class="dropnav icon-paragraph-justify" id="JELON__btnDropNav"></div>
         <ul class="menu hidden" id="JELON__menu">
             
-            <li rel="/photo/index.html" class="item ">
+            <li rel="/2017/07/24/socks/index.html" class="item ">
                 <a href="/" title="首页" class="icon-home">&nbsp;首页</a>
             </li>
             
-            <li rel="/photo/index.html" class="item ">
+            <li rel="/2017/07/24/socks/index.html" class="item ">
                 <a href="/lab/" title="代码" class="icon-lab">&nbsp;代码</a>
             </li>
             
-            <li rel="/photo/index.html" class="item current">
+            <li rel="/2017/07/24/socks/index.html" class="item ">
                 <a href="/photo/" title="掠影" class="icon-about">&nbsp;掠影</a>
             </li>
             
-            <li rel="/photo/index.html" class="item ">
+            <li rel="/2017/07/24/socks/index.html" class="item ">
                 <a href="/about/" title="关于" class="icon-comment">&nbsp;关于</a>
             </li>
             
@@ -113,17 +113,84 @@
     <div class="container body clearfix">
         <section class="content">
             <div class="content-main widget">
-                <!-- 独立页面 -->
+                <!-- 文章页 -->
+<!-- 文章 -->
 <article class="post article">
     <header class="text-center">
-        <h4 class="post-title"><a href="javascript: void(0);">照片</a></h4>
+        <h3 class="post-title"><span>啥都扫个死的搭建笔记</span></h3>
     </header>
+    <p class="post-meta text-center">
+        HeroHR 发表于
+        <time datetime="2017-07-23T16:00:00.000Z">2017-07-24</time>
+    </p>
+    <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png"></a>本作品采用<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/">知识共享署名-非商业性使用-相同方式共享 3.0 未本地化版本许可协议</a>进行许可。
     <div class="post-content">
-        
-            
-        
+        <h3 id="空气都TM甜的"><a href="#空气都TM甜的" class="headerlink" title="空气都TM甜的"></a>空气都TM甜的</h3><p>如果你向往自由与真理，你应该学会爬墙看看外面的世界。<br>需要一个外面的linux服务器，需要python以及pip。</p>
+<p>安装Python和pip就不说了，<br><code>pip install 啥都扫个死</code>安装<br>新建一个json文件，作为ss的配置文件。</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"server"</span>:<span class="string">"0.0.0.0"</span>,</span><br><span class="line">    <span class="attr">"server_port"</span>:你要暴露的端口号,</span><br><span class="line">    <span class="attr">"local_port"</span>:<span class="number">1080</span>,</span><br><span class="line">    <span class="attr">"password"</span>:<span class="string">"密码"</span>,</span><br><span class="line">    <span class="attr">"timeout"</span>:<span class="number">600</span>,</span><br><span class="line">    <span class="attr">"method"</span>:<span class="string">"加密方法"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>常用加密方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">rc4-md5</span><br><span class="line">aes-256-cfb</span><br><span class="line">rc4-cfb</span><br></pre></td></tr></table></figure>
+<p>命令<code>ssserver -c 配置文件路径</code>开启服务器<br><code>ctrl+z, bg%1, disown%1</code>依次键入，即可变为守护进程在后台运行。</p>
+<h3 id="关于服务器选择"><a href="#关于服务器选择" class="headerlink" title="关于服务器选择"></a>关于服务器选择</h3><p>腾讯云学生机有一个65元优惠券，选择香港地区。如果固定1M带宽，则需要每个月一元。如果选择按流量计费，然后加购几十G的磁盘，就可以以两元每月，1元1G的价格但是<strong>无限带宽</strong>！</p>
+
     </div>
+    <p class="post-meta">
+        <span class="post-cat">分类：
+            
+        </span>
+        <span class="post-tags">
+            标签：
+            
+    
+        <a href="/tags/linux/" title="linux">linux</a>
+    
+
+        </span>
+    </p>
 </article>
+<!-- 分享按钮 -->
+
+  <div class="article-share clearfix text-center">
+    <div class="share-area">
+      <span class="share-txt">分享到：</span>
+      <a href="javascript: window.open('http://service.weibo.com/share/share.php?url=' + encodeURIComponent(location.href) + '&title=' + document.title + '&language=zh_cn');" class="share-icon weibo"></a>
+      <a href="javascript: alert('请复制链接到微信并发送');" class="share-icon wechat"></a>
+      <a href="javascript: window.open('http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=' + encodeURIComponent(location.href) + '&title=' + document.title);" class="share-icon qqzone"></a>
+      <a href="javascript: window.open('http://connect.qq.com/widget/shareqq/index.html?url=' + encodeURIComponent(location.href) + '&desc=Jelon个人博客&title=' + document.title + '&callback=' + encodeURIComponent(location.href));" class="share-icon qq"></a>
+      <a href="javascript: window.open('http://shuo.douban.com/!service/share?href=' + encodeURIComponent(location.href) + '&name=' + document.title + '&text=' + document.title);" class="share-icon douban"></a>
+    </div>
+  </div>
+
+
+<!-- 上一篇/下一篇 -->
+
+<div class="article-nav clearfix">
+    
+    <span class="prev fl">
+        上一篇<br>
+        <a href="/2017/08/02/goStructnote/">
+            
+                Go中的结构体方法与接口
+            
+        </a>
+    </span>
+    
+
+    
+    <span class="next fr">
+        下一篇<br>
+        <a href="/2017/05/31/pokeman/">
+            
+                流畅的Python代码样例—— 一副扑克牌
+            
+        </a>
+    </span>
+    
+</div>
+
+<!-- 文章评论 -->
+
+
             </div>
 
         </section>

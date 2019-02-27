@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=11,IE=10,IE=9,IE=8">
     <meta name="baidu-site-verification" content="dIcXMeY8Ya">
     
-    <title>叁拾柒</title>
+    <title>文章归档: 2017 | 叁拾柒</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
     <meta name="keywords" content="37a, Python, Web, herohr, 后段技术">
     <meta name="description" content="37a的个人博客">
@@ -56,19 +56,19 @@
         <div class="dropnav icon-paragraph-justify" id="JELON__btnDropNav"></div>
         <ul class="menu hidden" id="JELON__menu">
             
-            <li rel="/index.html" class="item current">
+            <li rel="/archives/2017/index.html" class="item ">
                 <a href="/" title="首页" class="icon-home">&nbsp;首页</a>
             </li>
             
-            <li rel="/index.html" class="item ">
+            <li rel="/archives/2017/index.html" class="item ">
                 <a href="/lab/" title="代码" class="icon-lab">&nbsp;代码</a>
             </li>
             
-            <li rel="/index.html" class="item ">
+            <li rel="/archives/2017/index.html" class="item ">
                 <a href="/photo/" title="掠影" class="icon-about">&nbsp;掠影</a>
             </li>
             
-            <li rel="/index.html" class="item ">
+            <li rel="/archives/2017/index.html" class="item ">
                 <a href="/about/" title="关于" class="icon-comment">&nbsp;关于</a>
             </li>
             
@@ -113,202 +113,16 @@
     <div class="container body clearfix">
         <section class="content">
             <div class="content-main widget">
-                <!-- 首页 -->
+                <!-- 文章归档 -->
 
-    
     <h3 class="widget-hd">
         <strong>
             
-                最近动态
+                文章归档
+                <!-- 文章归档，可以根据日期分类 -->
             
         </strong>
     </h3>
-    
-        <!-- 文章列表 item -->
-<article class="post">
-    <header>
-        <!-- 标签这有且只能显示一个 -->
-        
-            <a href="javascript: void(0);" class="cat">未分类</a>
-        
-        <!-- 文章标题 -->
-        
-    <h3 class="post-title">
-    	<a href="/2019/02/17/shortspeakofj2ee/">
-    		J2EE初窥（一）
-    	</a>
-        
-    </h3>
-
-    </header>
-    <p class="post-meta">
-        HeroHR 发表于
-        <time datetime="2019-02-17T10:10:15.000Z">2019-02-17</time>
-        &nbsp;&nbsp;
-        <span class="post-tags">
-            标签：
-            
-    
-        <a href="/tags/J2EE/" title="J2EE">J2EE</a>
-    
-
-        </span>
-    </p>
-
-    <div class="post-content">
-        <div class="post-excerpt">
-            
-                <h1 id="Java-EE"><a href="#Java-EE" class="headerlink" title="Java EE"></a>Java EE</h1><p>Java重量级开发平台Java Enterprise Edition主要面向于服务端，提供了一整套完备的、工程化的开发框架，为开发大中型服务端应用提供了整套解决方案。</p>
-<p>Java EE框架组件包含了web技术的jsp、servlet、Structs2，业务层的EJava Bean，持久化层的MyBatis、JPA等。</p>
-<h2 id="Web技术"><a href="#Web技术" class="headerlink" title="Web技术"></a>Web技术</h2><h3 id="JSP"><a href="#JSP" class="headerlink" title="JSP"></a>JSP</h3><p>Java Server Page是一种以HTML为主，中间穿插Java代码的服务端语言。JSP的创造主要是为了解决视图层中页面逻辑与业务逻辑纠缠的问题，将HTML渲染放到服务器端来做。</p>
-<p>随着前端技术的不断发展，前后端分离的架构已经成为主流，JSP难以符合软件工程的要求，JSP渐渐已经退出Java Web技术主流，仅在政企及学校继续苟延残喘。</p>
-<h3 id="Servlet"><a href="#Servlet" class="headerlink" title="Servlet"></a>Servlet</h3><h4 id="Servlet与容器"><a href="#Servlet与容器" class="headerlink" title="Servlet与容器"></a>Servlet与容器</h4><p>Servlet作为Java EE的代表框架，撑起了Java 服务端技术的半边天。Servlet是服务端小程序，一个Servlet仅仅是一个类，而他则依赖于其背后的Servlet框架及web容器。流行的容器比如Tomcat，它将HTTP请求进行处理和预包装，向下传递给Servlet，Servlet进行业务逻辑处理，向上传递给Tomcat，Tomcat再将响应回送给客户端。这种架构很像Apache与PHP、Gunicorn与Django（<del>DaiAnGou</del>）.</p>
-<p><img src="https://s2.ax1x.com/2019/02/17/kyJcut.png" alt="img"></p>
-<h4 id="Servlet结构与生命周期"><a href="#Servlet结构与生命周期" class="headerlink" title="Servlet结构与生命周期"></a>Servlet结构与生命周期</h4><p>Servlet类有init方法、destroy方法，分别在Servlet实例被调用时及被销毁时调用。</p>
-<p>Servlet类有service方法，当一个请求到达时（无论method如何）则会将请求传递给service方法，进行处理。但是，一般情况下并不重写service方法，因为service方法还会继续传递请求给doGet、doPost、doXXX方法继续处理。doGet等方法在请求属于对应method的情况下调用。</p>
-<p><img src="https://s2.ax1x.com/2019/02/17/kytCWQ.png" alt="img"></p>
-<p>如上图，当第一个符合该servlet应服务的请求到达时，才将该servlet的init方法调用，之后的请求到达时，不再调用该方法，直接进入service方法处理。当受到终止服务时，调用destroy方法。</p>
-<h4 id="Filter过滤器"><a href="#Filter过滤器" class="headerlink" title="Filter过滤器"></a>Filter过滤器</h4><p>用户验证、表单验证、编码转换等对于请求的预处理在许多处理逻辑中都具有，Filter则将其解耦。Filter的设计核心是职责链模式，对于某个请求，需要进行多步过滤，为了让每一个过滤器都有机会过滤，将各个过滤器按顺序排为过滤器链(FilterChain)。</p>
-<p>Filter不仅仅具有前过滤，还拥有后过滤，也就是在其他下级过滤器或Servlet处理完之后再进行过滤，以达到重新编码、Cookie设置等操作。</p>
-<p><img src="https://s2.ax1x.com/2019/02/17/kydGge.png" alt="img"></p>
-<p>（国标上要求国内网站都要以GBK编码，但一般程序却善于处理UTF编码，故编解码问题是一个令人头疼的问题，编写一个编解码过滤器，将会巧妙解决该问题）</p>
-
-            
-            <p class="more">
-                <a href="/2019/02/17/shortspeakofj2ee/">阅读剩下更多</a>
-            </p>
-        </div>
-        <div class="post-thumbnail" data-img>
-            <a href="/2019/02/17/shortspeakofj2ee/" title="J2EE初窥（一）">
-                
-                    <!--
-                    <img src="https://s2.ax1x.com/2019/02/17/kywmRS.jpg" class="thumbnail">
-                    -->
-                    <img class="thumbnail" src="/img/default.png" data-echo="https://s2.ax1x.com/2019/02/17/kywmRS.jpg" alt="J2EE初窥（一）">
-                
-            </a>
-        </div>
-    </div>
-</article>
-
-    
-        <!-- 文章列表 item -->
-<article class="post">
-    <header>
-        <!-- 标签这有且只能显示一个 -->
-        
-            <a href="javascript: void(0);" class="cat">未分类</a>
-        
-        <!-- 文章标题 -->
-        
-    <h3 class="post-title">
-    	<a href="/2019/02/07/2019/">
-    		2019
-    	</a>
-        
-    </h3>
-
-    </header>
-    <p class="post-meta">
-        HeroHR 发表于
-        <time datetime="2019-02-07T11:01:31.000Z">2019-02-07</time>
-        &nbsp;&nbsp;
-        <span class="post-tags">
-            标签：
-            
-    
-        <a href="/tags/J2EE/" title="J2EE">J2EE</a>
-    
-
-        </span>
-    </p>
-
-    <div class="post-content">
-        <div class="post-excerpt">
-            
-                <h1 id="Hello-2019"><a href="#Hello-2019" class="headerlink" title="Hello 2019"></a>Hello 2019</h1><h2 id="猪年大吉"><a href="#猪年大吉" class="headerlink" title="猪年大吉"></a>猪年大吉</h2>
-            
-            <p class="more">
-                <a href="/2019/02/07/2019/">阅读剩下更多</a>
-            </p>
-        </div>
-        <div class="post-thumbnail" data-img>
-            <a href="/2019/02/07/2019/" title="2019">
-                
-                    <img class="thumbnail" src="/img/default.png" data-echo="/img/thumbnail/7.jpg" alt="默认配图">
-                
-            </a>
-        </div>
-    </div>
-</article>
-
-    
-        <!-- 文章列表 item -->
-<article class="post">
-    <header>
-        <!-- 标签这有且只能显示一个 -->
-        
-            <a href="javascript: void(0);" class="cat">未分类</a>
-        
-        <!-- 文章标题 -->
-        
-    <h3 class="post-title">
-    	<a href="/2019/01/08/goJson/">
-    		golang Json包（一）
-    	</a>
-        
-    </h3>
-
-    </header>
-    <p class="post-meta">
-        HeroHR 发表于
-        <time datetime="2019-01-08T10:10:15.000Z">2019-01-08</time>
-        &nbsp;&nbsp;
-        <span class="post-tags">
-            标签：
-            
-    
-        <a href="/tags/J2EE/" title="J2EE">J2EE</a>
-    
-
-        </span>
-    </p>
-
-    <div class="post-content">
-        <div class="post-excerpt">
-            
-                <p>Golang标准库里的json包位于<code>&quot;encoding/json&quot;</code></p>
-<h2 id="Struct-to-Json"><a href="#Struct-to-Json" class="headerlink" title="Struct to Json"></a>Struct to Json</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">在进行对象转换为 JSON 的过程中，会遵循如下几条规则：</span><br><span class="line"></span><br><span class="line">　　　　• 布尔型转换为 JSON 后仍是布尔型　， 如true -&gt; true</span><br><span class="line"></span><br><span class="line">　　　　• 浮点型和整数型转换后为JSON里面的常规数字，如 1.23 -&gt; 1.23</span><br><span class="line"></span><br><span class="line">　　　　• 字符串将以UTF-8编码转化输出为Unicode字符集的字符串，特殊字符比如&lt;将会被转义为\u003c</span><br><span class="line"></span><br><span class="line">　　　　• 数组和切片被转换为JSON 里面的数组，[]byte类会被转换为base64编码后的字符串，slice的零值被转换为null</span><br><span class="line"></span><br><span class="line">　　　　• 结构体会转化为JSON对象，并且只有结构体里边以大写字母开头的可被导出的字段才会被转化输出，而这些可导出的字段会作为JSON对象的字符串索引</span><br><span class="line"></span><br><span class="line">　　　　• 转化一个map 类型的数据结构时，该数据的类型必须是 map[string]T（T 可以是encoding/json 包支持的任意数据类型）</span><br></pre></td></tr></table></figure>
-<h3 id="导出"><a href="#导出" class="headerlink" title="导出"></a>导出</h3><p>定义一个结构体</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> User <span class="keyword">struct</span>&#123;</span><br><span class="line">    Id <span class="keyword">int</span></span><br><span class="line">    Username <span class="keyword">string</span></span><br><span class="line">    Sex <span class="keyword">int</span></span><br><span class="line">    password <span class="keyword">string</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    user := User&#123;<span class="number">1</span>, <span class="string">"Foo"</span>, <span class="number">1</span>&#125;</span><br><span class="line"></span><br><span class="line">    data, err := json.Marshal(user)</span><br><span class="line">    <span class="keyword">if</span> err != <span class="literal">nil</span>&#123;</span><br><span class="line">        fmt.Println(err)</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    &#125;</span><br><span class="line">    fmt.Println(<span class="keyword">string</span>(data))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;<span class="attr">"Id"</span>:<span class="number">1</span>,<span class="attr">"Username"</span>:<span class="string">"Foo"</span>,<span class="attr">"Sex"</span>:<span class="number">1</span>&#125;</span><br></pre></td></tr></table></figure>
-<p>根据上面的转换规则，只有首字母大写的字段才能被到处到js里，所以password是不能被导出的。</p>
-<p>但是根据大多数json的命名方式，首字母大写是很少见的。如果需要指定导出时候的字段名，那么在定义结构体的时候增加一个tag</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> User <span class="keyword">struct</span>&#123;</span><br><span class="line">    Id <span class="keyword">int</span> <span class="string">`json:"id"`</span></span><br><span class="line">    Username <span class="keyword">string</span> <span class="string">`json:"username"`</span></span><br><span class="line">    Sex <span class="keyword">int</span> <span class="string">`json:"-"`</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;<span class="attr">"id"</span>:<span class="number">1</span>,<span class="attr">"username"</span>:<span class="string">"Foo"</span>&#125;</span><br></pre></td></tr></table></figure>
-<p>可以在结构体字段的后面追加一个tag，格式为<code>json:”$filedname”</code>，那么转换的时候就会使用tag里面的字段名。如果不想导出某个字段的时候，需要设置他的字段名为<code>-</code>。</p>
-<h2 id="Json-to-Struct"><a href="#Json-to-Struct" class="headerlink" title="Json to Struct"></a>Json to Struct</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">• json.Unmarshal() 函数会根据一个约定的顺序查找目标结构中的字段，如果找到一个即发生匹配。那什么是找到了呢？关于“找到了”又有如下的规则：假设一个JSON对象有个名为&quot;Foo&quot;的索引，要将&quot;Foo&quot;所对应的值填充到目标结构体的目标字段上，json.Unmarshal() 将会遵循如下顺序进行查找匹配</span><br><span class="line"></span><br><span class="line">　　　　　　§ 一个包含Foo 标签的字段</span><br><span class="line"></span><br><span class="line">　　　　　　§  一个名为Foo 的字段</span><br><span class="line"></span><br><span class="line">　　　　　　§ 一个名为Foo 或者Foo 或者除了首字母其他字母不区分大小写的名为Foo 的字段。 这些字段在类型声明中必须都是以大写字母开头、可被导出的字段。</span><br><span class="line"></span><br><span class="line">　　　　注意：如果JSON中的字段在Go目标类型中不存在，json.Unmarshal() 函数在解码过程中会丢弃该字段。</span><br><span class="line"></span><br><span class="line">　　　　• 当JSON 的结构是未知的时候，会遵循如下规则：</span><br><span class="line"></span><br><span class="line">　　　　　　§ JSON中的布尔值将会转换为Go中的bool类型</span><br><span class="line"></span><br><span class="line">　　　　　　§ 数值会被转换为Go中的float64类型</span><br><span class="line"></span><br><span class="line">　　　　　　§ 字符串转换后还是string类型</span><br><span class="line"></span><br><span class="line">　　　　　　§ JSON数组会转换为[]interface&#123;&#125; 类型</span><br><span class="line"></span><br><span class="line">　　　　　　§ JSON对象会转换为map[string]interface&#123;&#125;类型</span><br><span class="line"></span><br><span class="line">　　　　　　§ null值会转换为nil</span><br><span class="line"></span><br><span class="line">　　　　注意：在Go的标准库encoding/json包中，允许使用map[string]interface&#123;&#125;和[]interface&#123;&#125; 类型的值来分别存放未知结构的JSON对象或数组</span><br></pre></td></tr></table></figure>
-<h3 id="导入"><a href="#导入" class="headerlink" title="导入"></a>导入</h3><p>现在有一json<code>{&quot;sex&quot;: true, &quot;username&quot;: &quot;chenjie&quot;}</code></p>
-<p>定义一个结构体，</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> User <span class="keyword">struct</span>&#123;</span><br><span class="line">    Id <span class="keyword">int</span> <span class="string">`json:"-"`</span></span><br><span class="line">    Username <span class="keyword">string</span> <span class="string">`json:"username"`</span></span><br><span class="line">    Sex <span class="keyword">bool</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    data := <span class="string">`&#123;"sex": true, "username": "chenjie"&#125;`</span></span><br><span class="line">    <span class="keyword">var</span> user User</span><br><span class="line">    err  := json.Unmarshal([]<span class="keyword">byte</span>(data), &amp;user)</span><br><span class="line">    <span class="keyword">if</span> err != <span class="literal">nil</span>&#123;</span><br><span class="line">        fmt.Println(err)</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    &#125;</span><br><span class="line">    fmt.Println(user.Sex, user.Username)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>json里面的sex和Sex字段对应，useranme和Username对应。注意到，如果json里面字段名小写，而结构体字段名首字母大写，那么还是可以成功转换的，可以参考上面的转换规则。</p>
-<p>如果是一个json数组的话，那么user这个地方应该变成users切片，并传入users切片的地址。</p>
-
-            
-            <p class="more">
-                <a href="/2019/01/08/goJson/">阅读剩下更多</a>
-            </p>
-        </div>
-        <div class="post-thumbnail" data-img>
-            <a href="/2019/01/08/goJson/" title="golang Json包（一）">
-                
-                    <img class="thumbnail" src="/img/default.png" data-echo="/img/thumbnail/8.jpg" alt="默认配图">
-                
-            </a>
-        </div>
-    </div>
-</article>
-
     
         <!-- 文章列表 item -->
 <article class="post">
@@ -759,14 +573,184 @@
 </article>
 
     
+        <!-- 文章列表 item -->
+<article class="post">
+    <header>
+        <!-- 标签这有且只能显示一个 -->
+        
+            <a href="javascript: void(0);" class="cat">未分类</a>
+        
+        <!-- 文章标题 -->
+        
+    <h3 class="post-title">
+    	<a href="/2017/05/31/pokeman/">
+    		流畅的Python代码样例—— 一副扑克牌
+    	</a>
+        
+    </h3>
+
+    </header>
+    <p class="post-meta">
+        HeroHR 发表于
+        <time datetime="2017-05-31T07:52:35.000Z">2017-05-31</time>
+        &nbsp;&nbsp;
+        <span class="post-tags">
+            标签：
+            
+    
+        <a href="/tags/python/" title="python">python</a>
+    
+
+        </span>
+    </p>
+
+    <div class="post-content">
+        <div class="post-excerpt">
+            
+                <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> namedtuple</span><br><span class="line">Card = namedtuple(<span class="string">"Card"</span>, (<span class="string">"rank"</span>, <span class="string">"suit"</span>))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CardPack</span>:</span></span><br><span class="line">    ranks = [str(r) <span class="keyword">for</span> r <span class="keyword">in</span> range(<span class="number">2</span>, <span class="number">11</span>)] + list(<span class="string">"JQKA"</span>)</span><br><span class="line">    suits = [<span class="string">'黑'</span>, <span class="string">'红'</span>, <span class="string">'梅'</span>, <span class="string">'方'</span>]</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.cards = [</span><br><span class="line">            Card(rank=i, suit=j) <span class="keyword">for</span> j <span class="keyword">in</span> CardPack.suits <span class="keyword">for</span> i <span class="keyword">in</span> CardPack.ranks</span><br><span class="line">            ]  <span class="comment"># 创建一副纸牌, 用ABCD代表四个花色，其实我不知道英文怎么说</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__len__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> len(self.cards)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__getitem__</span><span class="params">(self, item)</span>:</span>  <span class="comment"># 当调用 instance[item] 时会调用这个函数，包括分片操作</span></span><br><span class="line">        <span class="keyword">return</span> self.cards[item]</span><br><span class="line"></span><br><span class="line"><span class="meta">    @staticmethod</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">cards_high</span><span class="params">(card)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> <span class="number">13</span> * list(reversed(CardPack.suits)).index(card.suit) + CardPack.ranks.index(card.rank)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建一个纸牌</span></span><br><span class="line">a_card = Card(<span class="string">"10"</span>, <span class="string">"Black"</span>)</span><br><span class="line">print(a_card)  <span class="comment"># Card(rank='10', suit='Black')</span></span><br><span class="line"></span><br><span class="line">card_pack = CardPack()</span><br><span class="line">print(card_pack[<span class="number">3</span>])  <span class="comment"># Card(rank='5', suit='黑')</span></span><br><span class="line">print(card_pack[<span class="number">3</span>:<span class="number">5</span>:<span class="number">1</span>])  <span class="comment"># [Card(rank='5', suit='黑'), Card(rank='6', suit='黑')]</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> sorted(card_pack, key=CardPack.cards_high):  <span class="comment"># 注意key关键字参数</span></span><br><span class="line">    print(i)</span><br></pre></td></tr></table></figure>
+<p>二十行实现一副扑克牌<br>支持分片，支持索引，支持排序，支持反向<br>简直太强了！</p>
+
+            
+            <p class="more">
+                <a href="/2017/05/31/pokeman/">阅读剩下更多</a>
+            </p>
+        </div>
+        <div class="post-thumbnail" data-img>
+            <a href="/2017/05/31/pokeman/" title="流畅的Python代码样例—— 一副扑克牌">
+                
+                    <img class="thumbnail" src="/img/default.png" data-echo="/img/thumbnail/1.jpg" alt="默认配图">
+                
+            </a>
+        </div>
+    </div>
+</article>
+
+    
+        <!-- 文章列表 item -->
+<article class="post">
+    <header>
+        <!-- 标签这有且只能显示一个 -->
+        
+            <a href="javascript: void(0);" class="cat">未分类</a>
+        
+        <!-- 文章标题 -->
+        
+    <h3 class="post-title">
+    	<a href="/2017/05/25/deepHTTP/">
+    		深入理解HTTP——确定HTTP报文实体长度
+    	</a>
+        
+    </h3>
+
+    </header>
+    <p class="post-meta">
+        HeroHR 发表于
+        <time datetime="2017-05-24T16:00:00.000Z">2017-05-25</time>
+        &nbsp;&nbsp;
+        <span class="post-tags">
+            标签：
+            
+    
+        <a href="/tags/HTTP-server/" title="HTTP, server">HTTP, server</a>
+    
+
+        </span>
+    </p>
+
+    <div class="post-content">
+        <div class="post-excerpt">
+            
+                <p>如果将HTTP是一列火车，那么实体或称正文就是火车的一大串火车皮。</p>
+<h3 id="在HTTP1-0的情况下"><a href="#在HTTP1-0的情况下" class="headerlink" title="在HTTP1.0的情况下"></a><strong>在HTTP1.0的情况下</strong></h3><p>HTTP1.0是一个较为低级的版本，现代浏览器和服务器已经弃用。但1.0版HTTP却是HTTP协议<code>无状态</code>的最好的体现。在HTTP1.0中，<strong>一次请求及其响应对应一个TCP连接</strong>。<br>也就是说，这列火车就拉一节火车皮！<br>TCP连接建立起来之后，客户端就开始传输首部，然后以<code>\r\n\r\n</code>来标志首部的结束和实体的开始（当然是请求里包含实体才会有实体的开始），接下来就是实体的传输，当实体传输完之后，客户端就开始接收数据，服务器就知道，这次请求就已经结束了，那么实体就是<code>\r\n\r\n</code>到停止接收的那么一段数据。对应的，客户端接收响应的时候也是这样。<br>因为TCP的三次握手，以及TCP慢启动拥塞，导致这种传输方式效率极为低下，但是模型却很好理解！<br>改善HTTP1.0的效率的办法只有一个，就是并行请求。这样对客户端来说，的确可能会增加效率，但是对服务器来说，一个客户端对应的几十个TCP长连接，肯定吃不消。</p>
+<h3 id="可爱的HTTP1-1"><a href="#可爱的HTTP1-1" class="headerlink" title="可爱的HTTP1.1"></a><strong>可爱的HTTP1.1</strong></h3><p>HTTP1.1是一个使用较为广泛的版本，一般浏览器和服务器都遵守HTTP1.1。HTTP1.1的特性就是可以进行持久连接<code>keep-alive</code>。</p>
+<h4 id="keep-alive"><a href="#keep-alive" class="headerlink" title="keep-alive"></a><strong>keep-alive</strong></h4><p>当首部包含<code>Connection: keep-alive</code>的时候，这个连接便是一个持久连接。<br>一个持久连接意味着，这个<strong>TCP连接是可复用</strong>的。当一次HTTP请求结束之后，又可以紧接着使用这个TCP通道发送其他的HTTP请求，这样就减少了TCP握手时间、慢启动，减轻了服务器的压力。</p>
+<p>那么问题来了，一个TCP连接里面会有这么多报文传输，确定第一个请求的首部是个很简单的事情，怎么确定他的实体长度，以及怎么分割这个HTTP请求实体后面的请求呢？</p>
+<h4 id="Content-Length"><a href="#Content-Length" class="headerlink" title="Content-Length"></a><strong>Content-Length</strong></h4><p>当首部包含<code>Content-Length: &lt;length&gt;</code>时，我们便可以确认这条HTTP实体的长度了！<br>Content-Length首部指的是实体的长度且是实体的真实长度！无论实体是经过怎样的压缩，编码，跑在TCP栈之上的长度就是这么长。那么我们将请求头之后的Content-Length字节长度的数据作为实体，就可以确定第一个HTTP的数据报内容。依次，我们可以确定TCP连接里面的所有HTTP报文。</p>
+<h4 id="Chunked"><a href="#Chunked" class="headerlink" title="Chunked"></a><strong>Chunked</strong></h4><p>并不是所有持久连接都会包含<code>Content-Length</code>首部的，实体还可以分块传输。<br>当首部包含<code>Transfer-Encoding: chunked</code>时，这段报文的实体就是分块传输的。分块传输并不是分次传输，也就是传输实体的时候不包含首部，仅仅传输分块的实体。那么怎么确定一块数据的长度呢？<br>对于每一块数据来说，都是以一个十六进制的数作为开头的然后以<code>\r\n</code>分割长度与实体内容。这段十六进制的数就代表的是接下来一块数据的长度。<br>我们确定了第一块的长度，就可以确定所有块的长度。<br>对于分块传输，标志传输结束的是一个以0作为开头的然后一<code>\r\n\r\n</code>作为结尾的的一个0长度数据块。当接收到这个数据块的时候，就意味分块传输已经结束啦！<br>分块传输，在Web流媒体应用中非常重要，服务器不断的生成数据，客户端不断的接收数据。</p>
+<h3 id="展望HTTP2-0"><a href="#展望HTTP2-0" class="headerlink" title="展望HTTP2.0"></a><strong>展望HTTP2.0</strong></h3><p>HTTP1.1中，每一个HTTP数据报的传输在TCP栈上依旧是串行的。也就是说，你看电影用的是分块传输，但是如果要发一条弹幕，还得再开一个TCP连接。<br>在很多情况下，TCP栈上的数据传输并不是满负荷的，明明可以在传输的间隙传输别的数据，但是就是得等一条HTTP报文的结束。这种传输，说到底和HTTP1.0一样都需要并行来解决效率。<br>HTTP2.0中，每一个HTTP数据包的传输在TCP栈上是并行的。也就是说，在看电影的同时，这条TCP通道还能发送你的弹幕。那么就不用瞬间开那么多的TCP连接了！喜大普奔！<br>问题接踵而至，如果并行，如何确定每条数据属于那个HTTP报文？<br>我TM也不知道！<br>且看HTTP2.0的发展。<br>比起HTTP2.0，我更希望WebAssembly能够火起来，起码不要让Js独占浏览器平台。因为实在是太恶心了。</p>
+
+            
+            <p class="more">
+                <a href="/2017/05/25/deepHTTP/">阅读剩下更多</a>
+            </p>
+        </div>
+        <div class="post-thumbnail" data-img>
+            <a href="/2017/05/25/deepHTTP/" title="深入理解HTTP——确定HTTP报文实体长度">
+                
+                    <img class="thumbnail" src="/img/default.png" data-echo="/img/thumbnail/5.jpg" alt="默认配图">
+                
+            </a>
+        </div>
+    </div>
+</article>
+
+    
+        <!-- 文章列表 item -->
+<article class="post">
+    <header>
+        <!-- 标签这有且只能显示一个 -->
+        
+            <a href="javascript: void(0);" class="cat">未分类</a>
+        
+        <!-- 文章标题 -->
+        
+    <h3 class="post-title">
+    	<a href="/2017/05/20/deepHTTP2/">
+    		深入理解HTTP——探索HTTP请求的完整路径
+    	</a>
+        
+    </h3>
+
+    </header>
+    <p class="post-meta">
+        HeroHR 发表于
+        <time datetime="2017-05-19T16:00:00.000Z">2017-05-20</time>
+        &nbsp;&nbsp;
+        <span class="post-tags">
+            标签：
+            
+    
+        <a href="/tags/HTTP-server/" title="HTTP, server">HTTP, server</a>
+    
+
+        </span>
+    </p>
+
+    <div class="post-content">
+        <div class="post-excerpt">
+            
+                <h3 id="一次HTTP请求"><a href="#一次HTTP请求" class="headerlink" title="一次HTTP请求"></a><strong>一次HTTP请求</strong></h3><p>从浏览器发起对某URL的HTTP请求开始，到浏览器接收到服务器响应为止，探索一次HTTP请求的完整路径</p>
+<h4 id="构造请求"><a href="#构造请求" class="headerlink" title="构造请求"></a><strong>构造请求</strong></h4><p>请求头是由浏览器构建的，浏览器会根据自身的情况设置请求头的HTTP版本、接受Gzip压缩、自身浏览器版本、移动端或桌面端等构造请求头，然后根据用户的输入构建请求主题，打包成一个Request，准备发送。</p>
+<h4 id="URL解析"><a href="#URL解析" class="headerlink" title="URL解析"></a><strong>URL解析</strong></h4><p>如果URL是带有域名的，必须要把域名解析成IP地址。<br>浏览器从自身缓存里面寻找对应域名的IP地址，如果没有，那么前往系统的解析缓存里面去寻找，如果继续没有，那么就会使用DNS服务来获得域名的IP地址。</p>
+<h4 id="发起请求"><a href="#发起请求" class="headerlink" title="发起请求"></a><strong>发起请求</strong></h4><p>获取到服务器的IP之后，根据URL的地址与服务器建立TCP连接。<br>这里需要注意TCP的复用：<br>如果建立了Keep-Alive连接，那么TCP连接将不会断掉，以供浏览器再次使用这个TCP连接发送数据报文。<br>如果建立了管道化连接，那么TCP连接将变成全双工的管道，浏览器在使用一个TCP连接发送数据报的同时会接受这个TCP连接由服务器端发送的数据报。<br>如果建立的是串行连接，那么将会根据IP和端口与服务器进行三次握手建立TCP连接，然后再用这个TCP连接发送数据。</p>
+<h4 id="接受请求"><a href="#接受请求" class="headerlink" title="接受请求"></a><strong>接受请求</strong></h4><p>在服务器上，这个请求可能被Nginx与Apache服务器首先接收，Nginx或Apache服务器对请求头进行分析，判断这个请求是否合法，然后再次对这个请求进行修饰，建立与后端应用服务器的连接，将请求转发过去。<br>Nginx这类服务器的作用会把不合法的请求就给拦截掉、在完整接收到数据报之后才会转发后端、对请求进行分发负载均衡，总之起到修饰的作用。</p>
+<h4 id="处理请求"><a href="#处理请求" class="headerlink" title="处理请求"></a><strong>处理请求</strong></h4><p>应用服务器收到这条请求之后，开始进行业务处理</p>
+<h4 id="返回响应"><a href="#返回响应" class="headerlink" title="返回响应"></a><strong>返回响应</strong></h4><p>应用服务器构造一个响应，转发给Nginx或Apache服务器，Nginx或Apache再将响应传给客户端。</p>
+<h4 id="接收响应"><a href="#接收响应" class="headerlink" title="接收响应"></a><strong>接收响应</strong></h4><p>浏览器接收响应，根据建立的TCP连接类型决定是否关闭TCP连接。然后浏览器进行解析与处理，对于重定向，继续访问新的URL，对于响应中引用的其他HTTP连接，浏览器继续请求，然后呈现给用户一个完整的HTML界面，一次请求就这样结束了。</p>
+<h3 id="流程图表示"><a href="#流程图表示" class="headerlink" title="流程图表示"></a><strong>流程图表示</strong></h3><p>、[<img src="https://web.archive.org/web/20170831163208im_/http://hrohrbucket.oss-cn-hangzhou.aliyuncs.com/%E6%9C%AA%E5%91%BD%E5%90%8D%E6%96%87%E4%BB%B6%20%281%29.png" alt="img">](</p>
+
+            
+            <p class="more">
+                <a href="/2017/05/20/deepHTTP2/">阅读剩下更多</a>
+            </p>
+        </div>
+        <div class="post-thumbnail" data-img>
+            <a href="/2017/05/20/deepHTTP2/" title="深入理解HTTP——探索HTTP请求的完整路径">
+                
+                    <img class="thumbnail" src="/img/default.png" data-echo="/img/thumbnail/0.jpg" alt="默认配图">
+                
+            </a>
+        </div>
+    </div>
+</article>
+
+    
 
     
     <nav class="page-navigator">
-        <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">后一页</a>
+        <span class="page-number current">1</span><a class="page-number" href="/archives/2017/page/2/">2</a><a class="extend next" rel="next" href="/archives/2017/page/2/">后一页</a>
     </nav>
     
-
-
 
 
             </div>
