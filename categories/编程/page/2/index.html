@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=11,IE=10,IE=9,IE=8">
     <meta name="baidu-site-verification" content="dIcXMeY8Ya">
     
-    <title>文章归档: 2017/5 | 叁拾柒</title>
+    <title>`编程`分类下的文章 | 叁拾柒</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
     <meta name="keywords" content="37a, Python, Web, herohr, 后段技术">
     <meta name="description" content="37a的个人博客">
@@ -56,19 +56,19 @@
         <div class="dropnav icon-paragraph-justify" id="JELON__btnDropNav"></div>
         <ul class="menu hidden" id="JELON__menu">
             
-            <li rel="/archives/2017/05/index.html" class="item ">
+            <li rel="/categories/编程/page/2/index.html" class="item ">
                 <a href="/" title="首页" class="icon-home">&nbsp;首页</a>
             </li>
             
-            <li rel="/archives/2017/05/index.html" class="item ">
+            <li rel="/categories/编程/page/2/index.html" class="item ">
                 <a href="/lab/" title="代码" class="icon-lab">&nbsp;代码</a>
             </li>
             
-            <li rel="/archives/2017/05/index.html" class="item ">
+            <li rel="/categories/编程/page/2/index.html" class="item ">
                 <a href="/photo/" title="掠影" class="icon-about">&nbsp;掠影</a>
             </li>
             
-            <li rel="/archives/2017/05/index.html" class="item ">
+            <li rel="/categories/编程/page/2/index.html" class="item ">
                 <a href="/about/" title="关于" class="icon-comment">&nbsp;关于</a>
             </li>
             
@@ -113,130 +113,15 @@
     <div class="container body clearfix">
         <section class="content">
             <div class="content-main widget">
-                <!-- 文章归档 -->
+                <!-- 文章分类 -->
 
     <h3 class="widget-hd">
         <strong>
             
-                文章归档
-                <!-- 文章归档，可以根据日期分类 -->
+                `编程`分类下的文章
             
         </strong>
     </h3>
-    
-        <!-- 文章列表 item -->
-<article class="post">
-    <header>
-        <!-- 标签这有且只能显示一个 -->
-        
-        <a class="cat-link" href="/categories/编程/">编程</a>
-        
-        <!-- 文章标题 -->
-        
-    <h3 class="post-title">
-    	<a href="/2017/05/31/pokeman/">
-    		流畅的Python代码样例—— 一副扑克牌
-    	</a>
-        
-    </h3>
-
-    </header>
-    <p class="post-meta">
-        HeroHR 发表于
-        <time datetime="2017-05-31T07:52:35.000Z">2017-05-31</time>
-        &nbsp;&nbsp;
-        <span class="post-tags">
-            标签：
-            
-    
-        <a href="/tags/python/" title="python">python</a>
-    
-
-        </span>
-    </p>
-
-    <div class="post-content">
-        <div class="post-excerpt">
-            
-                <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> namedtuple</span><br><span class="line">Card = namedtuple(<span class="string">"Card"</span>, (<span class="string">"rank"</span>, <span class="string">"suit"</span>))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CardPack</span>:</span></span><br><span class="line">    ranks = [str(r) <span class="keyword">for</span> r <span class="keyword">in</span> range(<span class="number">2</span>, <span class="number">11</span>)] + list(<span class="string">"JQKA"</span>)</span><br><span class="line">    suits = [<span class="string">'黑'</span>, <span class="string">'红'</span>, <span class="string">'梅'</span>, <span class="string">'方'</span>]</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.cards = [</span><br><span class="line">            Card(rank=i, suit=j) <span class="keyword">for</span> j <span class="keyword">in</span> CardPack.suits <span class="keyword">for</span> i <span class="keyword">in</span> CardPack.ranks</span><br><span class="line">            ]  <span class="comment"># 创建一副纸牌, 用ABCD代表四个花色，其实我不知道英文怎么说</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__len__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> len(self.cards)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__getitem__</span><span class="params">(self, item)</span>:</span>  <span class="comment"># 当调用 instance[item] 时会调用这个函数，包括分片操作</span></span><br><span class="line">        <span class="keyword">return</span> self.cards[item]</span><br><span class="line"></span><br><span class="line"><span class="meta">    @staticmethod</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">cards_high</span><span class="params">(card)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> <span class="number">13</span> * list(reversed(CardPack.suits)).index(card.suit) + CardPack.ranks.index(card.rank)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建一个纸牌</span></span><br><span class="line">a_card = Card(<span class="string">"10"</span>, <span class="string">"Black"</span>)</span><br><span class="line">print(a_card)  <span class="comment"># Card(rank='10', suit='Black')</span></span><br><span class="line"></span><br><span class="line">card_pack = CardPack()</span><br><span class="line">print(card_pack[<span class="number">3</span>])  <span class="comment"># Card(rank='5', suit='黑')</span></span><br><span class="line">print(card_pack[<span class="number">3</span>:<span class="number">5</span>:<span class="number">1</span>])  <span class="comment"># [Card(rank='5', suit='黑'), Card(rank='6', suit='黑')]</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> sorted(card_pack, key=CardPack.cards_high):  <span class="comment"># 注意key关键字参数</span></span><br><span class="line">    print(i)</span><br></pre></td></tr></table></figure>
-<p>二十行实现一副扑克牌<br>支持分片，支持索引，支持排序，支持反向<br>简直太强了！</p>
-
-            
-            <p class="more">
-                <a href="/2017/05/31/pokeman/">阅读剩下更多</a>
-            </p>
-        </div>
-        <div class="post-thumbnail" data-img>
-            <a href="/2017/05/31/pokeman/" title="流畅的Python代码样例—— 一副扑克牌">
-                
-                    <img class="thumbnail" src="/img/default.png" data-echo="/img/thumbnail/1.jpg" alt="默认配图">
-                
-            </a>
-        </div>
-    </div>
-</article>
-
-    
-        <!-- 文章列表 item -->
-<article class="post">
-    <header>
-        <!-- 标签这有且只能显示一个 -->
-        
-        <a class="cat-link" href="/categories/编程/">编程</a>
-        
-        <!-- 文章标题 -->
-        
-    <h3 class="post-title">
-    	<a href="/2017/05/25/deepHTTP/">
-    		深入理解HTTP——确定HTTP报文实体长度
-    	</a>
-        
-    </h3>
-
-    </header>
-    <p class="post-meta">
-        HeroHR 发表于
-        <time datetime="2017-05-24T16:00:00.000Z">2017-05-25</time>
-        &nbsp;&nbsp;
-        <span class="post-tags">
-            标签：
-            
-    
-        <a href="/tags/server/" title="server">server</a> / 
-    
-        <a href="/tags/HTTP/" title="HTTP">HTTP</a>
-    
-
-        </span>
-    </p>
-
-    <div class="post-content">
-        <div class="post-excerpt">
-            
-                <p>如果将HTTP是一列火车，那么实体或称正文就是火车的一大串火车皮。</p>
-<h3 id="在HTTP1-0的情况下"><a href="#在HTTP1-0的情况下" class="headerlink" title="在HTTP1.0的情况下"></a><strong>在HTTP1.0的情况下</strong></h3><p>HTTP1.0是一个较为低级的版本，现代浏览器和服务器已经弃用。但1.0版HTTP却是HTTP协议<code>无状态</code>的最好的体现。在HTTP1.0中，<strong>一次请求及其响应对应一个TCP连接</strong>。<br>也就是说，这列火车就拉一节火车皮！<br>TCP连接建立起来之后，客户端就开始传输首部，然后以<code>\r\n\r\n</code>来标志首部的结束和实体的开始（当然是请求里包含实体才会有实体的开始），接下来就是实体的传输，当实体传输完之后，客户端就开始接收数据，服务器就知道，这次请求就已经结束了，那么实体就是<code>\r\n\r\n</code>到停止接收的那么一段数据。对应的，客户端接收响应的时候也是这样。<br>因为TCP的三次握手，以及TCP慢启动拥塞，导致这种传输方式效率极为低下，但是模型却很好理解！<br>改善HTTP1.0的效率的办法只有一个，就是并行请求。这样对客户端来说，的确可能会增加效率，但是对服务器来说，一个客户端对应的几十个TCP长连接，肯定吃不消。</p>
-<h3 id="可爱的HTTP1-1"><a href="#可爱的HTTP1-1" class="headerlink" title="可爱的HTTP1.1"></a><strong>可爱的HTTP1.1</strong></h3><p>HTTP1.1是一个使用较为广泛的版本，一般浏览器和服务器都遵守HTTP1.1。HTTP1.1的特性就是可以进行持久连接<code>keep-alive</code>。</p>
-<h4 id="keep-alive"><a href="#keep-alive" class="headerlink" title="keep-alive"></a><strong>keep-alive</strong></h4><p>当首部包含<code>Connection: keep-alive</code>的时候，这个连接便是一个持久连接。<br>一个持久连接意味着，这个<strong>TCP连接是可复用</strong>的。当一次HTTP请求结束之后，又可以紧接着使用这个TCP通道发送其他的HTTP请求，这样就减少了TCP握手时间、慢启动，减轻了服务器的压力。</p>
-<p>那么问题来了，一个TCP连接里面会有这么多报文传输，确定第一个请求的首部是个很简单的事情，怎么确定他的实体长度，以及怎么分割这个HTTP请求实体后面的请求呢？</p>
-<h4 id="Content-Length"><a href="#Content-Length" class="headerlink" title="Content-Length"></a><strong>Content-Length</strong></h4><p>当首部包含<code>Content-Length: &lt;length&gt;</code>时，我们便可以确认这条HTTP实体的长度了！<br>Content-Length首部指的是实体的长度且是实体的真实长度！无论实体是经过怎样的压缩，编码，跑在TCP栈之上的长度就是这么长。那么我们将请求头之后的Content-Length字节长度的数据作为实体，就可以确定第一个HTTP的数据报内容。依次，我们可以确定TCP连接里面的所有HTTP报文。</p>
-<h4 id="Chunked"><a href="#Chunked" class="headerlink" title="Chunked"></a><strong>Chunked</strong></h4><p>并不是所有持久连接都会包含<code>Content-Length</code>首部的，实体还可以分块传输。<br>当首部包含<code>Transfer-Encoding: chunked</code>时，这段报文的实体就是分块传输的。分块传输并不是分次传输，也就是传输实体的时候不包含首部，仅仅传输分块的实体。那么怎么确定一块数据的长度呢？<br>对于每一块数据来说，都是以一个十六进制的数作为开头的然后以<code>\r\n</code>分割长度与实体内容。这段十六进制的数就代表的是接下来一块数据的长度。<br>我们确定了第一块的长度，就可以确定所有块的长度。<br>对于分块传输，标志传输结束的是一个以0作为开头的然后一<code>\r\n\r\n</code>作为结尾的的一个0长度数据块。当接收到这个数据块的时候，就意味分块传输已经结束啦！<br>分块传输，在Web流媒体应用中非常重要，服务器不断的生成数据，客户端不断的接收数据。</p>
-<h3 id="展望HTTP2-0"><a href="#展望HTTP2-0" class="headerlink" title="展望HTTP2.0"></a><strong>展望HTTP2.0</strong></h3><p>HTTP1.1中，每一个HTTP数据报的传输在TCP栈上依旧是串行的。也就是说，你看电影用的是分块传输，但是如果要发一条弹幕，还得再开一个TCP连接。<br>在很多情况下，TCP栈上的数据传输并不是满负荷的，明明可以在传输的间隙传输别的数据，但是就是得等一条HTTP报文的结束。这种传输，说到底和HTTP1.0一样都需要并行来解决效率。<br>HTTP2.0中，每一个HTTP数据包的传输在TCP栈上是并行的。也就是说，在看电影的同时，这条TCP通道还能发送你的弹幕。那么就不用瞬间开那么多的TCP连接了！喜大普奔！<br>问题接踵而至，如果并行，如何确定每条数据属于那个HTTP报文？<br>我TM也不知道！<br>且看HTTP2.0的发展。<br>比起HTTP2.0，我更希望WebAssembly能够火起来，起码不要让Js独占浏览器平台。因为实在是太恶心了。</p>
-
-            
-            <p class="more">
-                <a href="/2017/05/25/deepHTTP/">阅读剩下更多</a>
-            </p>
-        </div>
-        <div class="post-thumbnail" data-img>
-            <a href="/2017/05/25/deepHTTP/" title="深入理解HTTP——确定HTTP报文实体长度">
-                
-                    <img class="thumbnail" src="/img/default.png" data-echo="/img/thumbnail/5.jpg" alt="默认配图">
-                
-            </a>
-        </div>
-    </div>
-</article>
-
     
         <!-- 文章列表 item -->
 <article class="post">
@@ -549,10 +434,71 @@
 </article>
 
     
+        <!-- 文章列表 item -->
+<article class="post">
+    <header>
+        <!-- 标签这有且只能显示一个 -->
+        
+        <a class="cat-link" href="/categories/编程/">编程</a>
+        
+        <!-- 文章标题 -->
+        
+    <h3 class="post-title">
+    	<a href="/2017/03/01/holeinpython/">
+    		震惊，Python中竟然有这种史诗巨坑
+    	</a>
+        
+    </h3>
+
+    </header>
+    <p class="post-meta">
+        HeroHR 发表于
+        <time datetime="2017-02-28T16:00:00.000Z">2017-03-01</time>
+        &nbsp;&nbsp;
+        <span class="post-tags">
+            标签：
+            
+    
+        <a href="/tags/python/" title="python">python</a>
+    
+
+        </span>
+    </p>
+
+    <div class="post-content">
+        <div class="post-excerpt">
+            
+                <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">lis = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">2</span> ,<span class="number">1</span> ,<span class="number">1</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> lis:</span><br><span class="line">	<span class="keyword">if</span> i == <span class="number">1</span>:</span><br><span class="line">		lis.remove(i)</span><br><span class="line">print(lis)</span><br></pre></td></tr></table></figure>
+<p><code>OUT : [2, 2, 1, 1]</code></p>
+<p>这是怎么回事？</p>
+<p>按照Python工程师的逻辑，这种bug不可能会出现</p>
+<p><code>for</code>循环内部使用一个列表的下标进行遍历，每循环一遍，下标自增</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">remove</span><span class="params">(<span class="keyword">int</span> lis[],val)</span></span>&#123;</span><br><span class="line">  <span class="keyword">while</span> lis[i]&#123; <span class="comment">//姑且这么判断数组边界</span></span><br><span class="line">    <span class="keyword">if</span>(lis[i]==val)&#123;</span><br><span class="line">      <span class="keyword">int</span> j=i</span><br><span class="line">      <span class="keyword">while</span> lis[j+<span class="number">1</span>]&#123;</span><br><span class="line">        lis[j] = lis[j+<span class="number">1</span>]; <span class="comment">//将数组前移</span></span><br><span class="line">        j++;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    i++;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<p>用一个不健壮的c语言代码描述，就是这样的，当remove之后，被remove掉的元素后面的元素全部前移，但是下标仍然自增，这样就会跳过一个元素。</p>
+<p>所以会出现上述情况。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">remove_all</span><span class="params">(lis, val)</span>:</span></span><br><span class="line">    i = <span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span> i &lt; len(lis):</span><br><span class="line">        <span class="keyword">if</span> lis[i] == val:</span><br><span class="line">            lis.pop(i)</span><br><span class="line">            <span class="keyword">continue</span></span><br><span class="line">        i += <span class="number">1</span></span><br></pre></td></tr></table></figure>
+<p>这样的写法也许会更好，虽然这样并不<code>pythonic</code></p>
+
+            
+            <p class="more">
+                <a href="/2017/03/01/holeinpython/">阅读剩下更多</a>
+            </p>
+        </div>
+        <div class="post-thumbnail" data-img>
+            <a href="/2017/03/01/holeinpython/" title="震惊，Python中竟然有这种史诗巨坑">
+                
+                    <img class="thumbnail" src="/img/default.png" data-echo="/img/thumbnail/1.jpg" alt="默认配图">
+                
+            </a>
+        </div>
+    </div>
+</article>
+
+    
 
     
     <nav class="page-navigator">
-        <span class="page-number current">1</span>
+        <a class="extend prev" rel="prev" href="/categories/编程/">前一页</a><a class="page-number" href="/categories/编程/">1</a><span class="page-number current">2</span>
     </nav>
     
 

@@ -129,60 +129,7 @@
     <header>
         <!-- 标签这有且只能显示一个 -->
         
-            <a href="javascript: void(0);" class="cat">未分类</a>
-        
-        <!-- 文章标题 -->
-        
-    <h3 class="post-title">
-    	<a href="/2017/05/31/pokeman/">
-    		流畅的Python代码样例—— 一副扑克牌
-    	</a>
-        
-    </h3>
-
-    </header>
-    <p class="post-meta">
-        HeroHR 发表于
-        <time datetime="2017-05-31T07:52:35.000Z">2017-05-31</time>
-        &nbsp;&nbsp;
-        <span class="post-tags">
-            标签：
-            
-    
-        <a href="/tags/python/" title="python">python</a>
-    
-
-        </span>
-    </p>
-
-    <div class="post-content">
-        <div class="post-excerpt">
-            
-                <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> namedtuple</span><br><span class="line">Card = namedtuple(<span class="string">"Card"</span>, (<span class="string">"rank"</span>, <span class="string">"suit"</span>))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CardPack</span>:</span></span><br><span class="line">    ranks = [str(r) <span class="keyword">for</span> r <span class="keyword">in</span> range(<span class="number">2</span>, <span class="number">11</span>)] + list(<span class="string">"JQKA"</span>)</span><br><span class="line">    suits = [<span class="string">'黑'</span>, <span class="string">'红'</span>, <span class="string">'梅'</span>, <span class="string">'方'</span>]</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.cards = [</span><br><span class="line">            Card(rank=i, suit=j) <span class="keyword">for</span> j <span class="keyword">in</span> CardPack.suits <span class="keyword">for</span> i <span class="keyword">in</span> CardPack.ranks</span><br><span class="line">            ]  <span class="comment"># 创建一副纸牌, 用ABCD代表四个花色，其实我不知道英文怎么说</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__len__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> len(self.cards)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__getitem__</span><span class="params">(self, item)</span>:</span>  <span class="comment"># 当调用 instance[item] 时会调用这个函数，包括分片操作</span></span><br><span class="line">        <span class="keyword">return</span> self.cards[item]</span><br><span class="line"></span><br><span class="line"><span class="meta">    @staticmethod</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">cards_high</span><span class="params">(card)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> <span class="number">13</span> * list(reversed(CardPack.suits)).index(card.suit) + CardPack.ranks.index(card.rank)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建一个纸牌</span></span><br><span class="line">a_card = Card(<span class="string">"10"</span>, <span class="string">"Black"</span>)</span><br><span class="line">print(a_card)  <span class="comment"># Card(rank='10', suit='Black')</span></span><br><span class="line"></span><br><span class="line">card_pack = CardPack()</span><br><span class="line">print(card_pack[<span class="number">3</span>])  <span class="comment"># Card(rank='5', suit='黑')</span></span><br><span class="line">print(card_pack[<span class="number">3</span>:<span class="number">5</span>:<span class="number">1</span>])  <span class="comment"># [Card(rank='5', suit='黑'), Card(rank='6', suit='黑')]</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> sorted(card_pack, key=CardPack.cards_high):  <span class="comment"># 注意key关键字参数</span></span><br><span class="line">    print(i)</span><br></pre></td></tr></table></figure>
-<p>二十行实现一副扑克牌<br>支持分片，支持索引，支持排序，支持反向<br>简直太强了！</p>
-
-            
-            <p class="more">
-                <a href="/2017/05/31/pokeman/">阅读剩下更多</a>
-            </p>
-        </div>
-        <div class="post-thumbnail" data-img>
-            <a href="/2017/05/31/pokeman/" title="流畅的Python代码样例—— 一副扑克牌">
-                
-                    <img class="thumbnail" src="/img/default.png" data-echo="/img/thumbnail/1.jpg" alt="默认配图">
-                
-            </a>
-        </div>
-    </div>
-</article>
-
-    
-        <!-- 文章列表 item -->
-<article class="post">
-    <header>
-        <!-- 标签这有且只能显示一个 -->
-        
-            <a href="javascript: void(0);" class="cat">未分类</a>
+        <a class="cat-link" href="/categories/编程/">编程</a>
         
         <!-- 文章标题 -->
         
@@ -243,7 +190,7 @@
     <header>
         <!-- 标签这有且只能显示一个 -->
         
-            <a href="javascript: void(0);" class="cat">未分类</a>
+        <a class="cat-link" href="/categories/编程/">编程</a>
         
         <!-- 文章标题 -->
         
@@ -305,7 +252,7 @@
     <header>
         <!-- 标签这有且只能显示一个 -->
         
-            <a href="javascript: void(0);" class="cat">未分类</a>
+        <a class="cat-link" href="/categories/编程/">编程</a>
         
         <!-- 文章标题 -->
         
@@ -369,7 +316,7 @@
     <header>
         <!-- 标签这有且只能显示一个 -->
         
-            <a href="javascript: void(0);" class="cat">未分类</a>
+        <a class="cat-link" href="/categories/编程/">编程</a>
         
         <!-- 文章标题 -->
         
@@ -439,7 +386,7 @@
     <header>
         <!-- 标签这有且只能显示一个 -->
         
-            <a href="javascript: void(0);" class="cat">未分类</a>
+        <a class="cat-link" href="/categories/编程/">编程</a>
         
         <!-- 文章标题 -->
         
@@ -491,7 +438,7 @@
     <header>
         <!-- 标签这有且只能显示一个 -->
         
-            <a href="javascript: void(0);" class="cat">未分类</a>
+        <a class="cat-link" href="/categories/编程/">编程</a>
         
         <!-- 文章标题 -->
         
@@ -554,7 +501,7 @@
     <header>
         <!-- 标签这有且只能显示一个 -->
         
-            <a href="javascript: void(0);" class="cat">未分类</a>
+        <a class="cat-link" href="/categories/编程/">编程</a>
         
         <!-- 文章标题 -->
         
@@ -630,6 +577,16 @@
         <!-- 文章分类 -->
 <ul class="widget-bd">
     
+    <li>
+        <a href="/categories/生活/">生活</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/编程/">编程</a>
+        <span class="badge">(16)</span>
+    </li>
+    
 </ul>
     </section>
 
@@ -648,8 +605,6 @@
     <a class="tag-item" href="/tags/golang/" title="golang">golang (3)</a>
   
     <a class="tag-item" href="/tags/python/" title="python">python (5)</a>
-  
-    <a class="tag-item" href="/tags/J2EE/" title="J2EE">J2EE (1)</a>
   
 </div>
     </section>
