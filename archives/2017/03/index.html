@@ -164,11 +164,6 @@
 <p>按照Python工程师的逻辑，这种bug不可能会出现</p>
 <p><code>for</code>循环内部使用一个列表的下标进行遍历，每循环一遍，下标自增</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">remove</span><span class="params">(<span class="keyword">int</span> lis[],val)</span></span>&#123;</span><br><span class="line">  <span class="keyword">while</span> lis[i]&#123; <span class="comment">//姑且这么判断数组边界</span></span><br><span class="line">    <span class="keyword">if</span>(lis[i]==val)&#123;</span><br><span class="line">      <span class="keyword">int</span> j=i</span><br><span class="line">      <span class="keyword">while</span> lis[j+<span class="number">1</span>]&#123;</span><br><span class="line">        lis[j] = lis[j+<span class="number">1</span>]; <span class="comment">//将数组前移</span></span><br><span class="line">        j++;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    i++;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-<p>用一个不健壮的c语言代码描述，就是这样的，当remove之后，被remove掉的元素后面的元素全部前移，但是下标仍然自增，这样就会跳过一个元素。</p>
-<p>所以会出现上述情况。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">remove_all</span><span class="params">(lis, val)</span>:</span></span><br><span class="line">    i = <span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span> i &lt; len(lis):</span><br><span class="line">        <span class="keyword">if</span> lis[i] == val:</span><br><span class="line">            lis.pop(i)</span><br><span class="line">            <span class="keyword">continue</span></span><br><span class="line">        i += <span class="number">1</span></span><br></pre></td></tr></table></figure>
-<p>这样的写法也许会更好，虽然这样并不<code>pythonic</code></p>
-
             
             <p class="more">
                 <a href="/2017/03/01/holeinpython/">阅读剩下更多</a>
@@ -217,11 +212,11 @@
   
     <a class="tag-item" href="/tags/linux/" title="linux">linux (4)</a>
   
-    <a class="tag-item" href="/tags/HTTP/" title="HTTP">HTTP (3)</a>
-  
     <a class="tag-item" href="/tags/server/" title="server">server (7)</a>
   
-    <a class="tag-item" href="/tags/生活/" title="生活">生活 (1)</a>
+    <a class="tag-item" href="/tags/HTTP/" title="HTTP">HTTP (3)</a>
+  
+    <a class="tag-item" href="/tags/面试经验/" title="面试经验">面试经验 (1)</a>
   
     <a class="tag-item" href="/tags/golang/" title="golang">golang (3)</a>
   

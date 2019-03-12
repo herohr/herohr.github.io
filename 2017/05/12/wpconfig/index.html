@@ -133,7 +133,7 @@
 <p><code>sudo apt-get install mysql-server</code> 安装Mysql 不出意外会出现让你设置密码的界面，重复两遍即可。<br><img src="https://web.archive.org/web/20170831163208im_/http://hrohrbucket.oss-cn-hangzhou.aliyuncs.com/QQ%E6%88%AA%E5%9B%BE20170512154701.png" alt="img"><br><code>sudo passwd</code> 输入两次密码设置root账户的密码</p>
 <h4 id="配置数据库"><a href="#配置数据库" class="headerlink" title="配置数据库"></a><strong>配置数据库</strong></h4><p>输入 <code>mysql -u root -p</code>，然后输入密码进入数据库，这个密码是你刚才创建Mysql帐号的密码。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">create database wp;</span><br><span class="line">commit;</span><br><span class="line">quit;</span><br></pre></td></tr></table></figure>
-<p>这样你就创建了一个数据库 <code>wp</code></p>
+<p>这样你就创建了一个数据库 <code>wp</code> <a id="more"></a></p>
 <h3 id="配置wordpress"><a href="#配置wordpress" class="headerlink" title="配置wordpress"></a><strong>配置wordpress</strong></h3><h4 id="安装wordpress"><a href="#安装wordpress" class="headerlink" title="安装wordpress"></a><strong>安装wordpress</strong></h4><p>进入<code>apache</code>根目录<code>cd /var/www/html</code><br>切换为root用户 <code>su</code> 然后输入root密码，</p>
 <p><code>wget https://cn.wordpress.org/wordpress-4.7.4-zh_CN.tar.gz</code>下载 wordpress<br>如果国外源速度太慢，可以切换到我上传的国内云<code>wget http://hrohrbucket.oss-cn-hangzhou.aliyuncs.com/wordpress-4.7.4-zh_CN.tar.gz</code>下载。</p>
 <p><code>tar -xzvf wordpress-4.7.4-zh_CN.tar.gz</code> 解压 wordpress<br><code>mv wordpress/* ./</code> 移动wordpress文件到当前目录<br><code>rm index.html</code> 删除apache的默认主页<br><code>sudo /etc/init.d/apache2 restart</code>重启apache服务器。</p>
@@ -234,11 +234,11 @@
   
     <a class="tag-item" href="/tags/linux/" title="linux">linux (4)</a>
   
-    <a class="tag-item" href="/tags/HTTP/" title="HTTP">HTTP (3)</a>
-  
     <a class="tag-item" href="/tags/server/" title="server">server (7)</a>
   
-    <a class="tag-item" href="/tags/生活/" title="生活">生活 (1)</a>
+    <a class="tag-item" href="/tags/HTTP/" title="HTTP">HTTP (3)</a>
+  
+    <a class="tag-item" href="/tags/面试经验/" title="面试经验">面试经验 (1)</a>
   
     <a class="tag-item" href="/tags/golang/" title="golang">golang (3)</a>
   

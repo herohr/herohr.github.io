@@ -127,6 +127,7 @@
     <div class="post-content">
         <h3 id="一次HTTP请求"><a href="#一次HTTP请求" class="headerlink" title="一次HTTP请求"></a><strong>一次HTTP请求</strong></h3><p>从浏览器发起对某URL的HTTP请求开始，到浏览器接收到服务器响应为止，探索一次HTTP请求的完整路径</p>
 <h4 id="构造请求"><a href="#构造请求" class="headerlink" title="构造请求"></a><strong>构造请求</strong></h4><p>请求头是由浏览器构建的，浏览器会根据自身的情况设置请求头的HTTP版本、接受Gzip压缩、自身浏览器版本、移动端或桌面端等构造请求头，然后根据用户的输入构建请求主题，打包成一个Request，准备发送。</p>
+ <a id="more"></a>
 <h4 id="URL解析"><a href="#URL解析" class="headerlink" title="URL解析"></a><strong>URL解析</strong></h4><p>如果URL是带有域名的，必须要把域名解析成IP地址。<br>浏览器从自身缓存里面寻找对应域名的IP地址，如果没有，那么前往系统的解析缓存里面去寻找，如果继续没有，那么就会使用DNS服务来获得域名的IP地址。</p>
 <h4 id="发起请求"><a href="#发起请求" class="headerlink" title="发起请求"></a><strong>发起请求</strong></h4><p>获取到服务器的IP之后，根据URL的地址与服务器建立TCP连接。<br>这里需要注意TCP的复用：<br>如果建立了Keep-Alive连接，那么TCP连接将不会断掉，以供浏览器再次使用这个TCP连接发送数据报文。<br>如果建立了管道化连接，那么TCP连接将变成全双工的管道，浏览器在使用一个TCP连接发送数据报的同时会接受这个TCP连接由服务器端发送的数据报。<br>如果建立的是串行连接，那么将会根据IP和端口与服务器进行三次握手建立TCP连接，然后再用这个TCP连接发送数据。</p>
 <h4 id="接受请求"><a href="#接受请求" class="headerlink" title="接受请求"></a><strong>接受请求</strong></h4><p>在服务器上，这个请求可能被Nginx与Apache服务器首先接收，Nginx或Apache服务器对请求头进行分析，判断这个请求是否合法，然后再次对这个请求进行修饰，建立与后端应用服务器的连接，将请求转发过去。<br>Nginx这类服务器的作用会把不合法的请求就给拦截掉、在完整接收到数据报之后才会转发后端、对请求进行分发负载均衡，总之起到修饰的作用。</p>
@@ -144,9 +145,9 @@
             标签：
             
     
-        <a href="/tags/HTTP/" title="HTTP">HTTP</a> / 
+        <a href="/tags/server/" title="server">server</a> / 
     
-        <a href="/tags/server/" title="server">server</a>
+        <a href="/tags/HTTP/" title="HTTP">HTTP</a>
     
 
         </span>
@@ -226,11 +227,11 @@
   
     <a class="tag-item" href="/tags/linux/" title="linux">linux (4)</a>
   
-    <a class="tag-item" href="/tags/HTTP/" title="HTTP">HTTP (3)</a>
-  
     <a class="tag-item" href="/tags/server/" title="server">server (7)</a>
   
-    <a class="tag-item" href="/tags/生活/" title="生活">生活 (1)</a>
+    <a class="tag-item" href="/tags/HTTP/" title="HTTP">HTTP (3)</a>
+  
+    <a class="tag-item" href="/tags/面试经验/" title="面试经验">面试经验 (1)</a>
   
     <a class="tag-item" href="/tags/golang/" title="golang">golang (3)</a>
   

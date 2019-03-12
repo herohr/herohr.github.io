@@ -126,7 +126,7 @@
     <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png"></a>本作品采用<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/">知识共享署名-非商业性使用-相同方式共享 3.0 未本地化版本许可协议</a>进行许可。
     <div class="post-content">
         <p>如果将HTTP是一列火车，那么实体或称正文就是火车的一大串火车皮。</p>
-<h3 id="在HTTP1-0的情况下"><a href="#在HTTP1-0的情况下" class="headerlink" title="在HTTP1.0的情况下"></a><strong>在HTTP1.0的情况下</strong></h3><p>HTTP1.0是一个较为低级的版本，现代浏览器和服务器已经弃用。但1.0版HTTP却是HTTP协议<code>无状态</code>的最好的体现。在HTTP1.0中，<strong>一次请求及其响应对应一个TCP连接</strong>。<br>也就是说，这列火车就拉一节火车皮！<br>TCP连接建立起来之后，客户端就开始传输首部，然后以<code>\r\n\r\n</code>来标志首部的结束和实体的开始（当然是请求里包含实体才会有实体的开始），接下来就是实体的传输，当实体传输完之后，客户端就开始接收数据，服务器就知道，这次请求就已经结束了，那么实体就是<code>\r\n\r\n</code>到停止接收的那么一段数据。对应的，客户端接收响应的时候也是这样。<br>因为TCP的三次握手，以及TCP慢启动拥塞，导致这种传输方式效率极为低下，但是模型却很好理解！<br>改善HTTP1.0的效率的办法只有一个，就是并行请求。这样对客户端来说，的确可能会增加效率，但是对服务器来说，一个客户端对应的几十个TCP长连接，肯定吃不消。</p>
+<h3 id="在HTTP1-0的情况下"><a href="#在HTTP1-0的情况下" class="headerlink" title="在HTTP1.0的情况下"></a><strong>在HTTP1.0的情况下</strong></h3><p>HTTP1.0是一个较为低级的版本，现代浏览器和服务器已经弃用。但1.0版HTTP却是HTTP协议<code>无状态</code>的最好的体现。在HTTP1.0中，<strong>一次请求及其响应对应一个TCP连接</strong>。<br>也就是说，这列火车就拉一节火车皮！<br>TCP连接建立起来之后，客户端就开始传输首部，然后以<code>\r\n\r\n</code>来标志首部的结束和实体的开始（当然是请求里包含实体才会有实体的开始），接下来就是实体的传输，当实体传输完之后，客户端就开始接收数据，服务器就知道，这次请求就已经结束了，那么实体就是<code>\r\n\r\n</code>到停止接收的那么一段数据。对应的，客户端接收响应的时候也是这样。<br>因为TCP的三次握手，以及TCP慢启动拥塞，导致这种传输方式效率极为低下，但是模型却很好理解！<br>改善HTTP1.0的效率的办法只有一个，就是并行请求。这样对客户端来说，的确可能会增加效率，但是对服务器来说，一个客户端对应的几十个TCP长连接，肯定吃不消。<br> <a id="more"></a></p>
 <h3 id="可爱的HTTP1-1"><a href="#可爱的HTTP1-1" class="headerlink" title="可爱的HTTP1.1"></a><strong>可爱的HTTP1.1</strong></h3><p>HTTP1.1是一个使用较为广泛的版本，一般浏览器和服务器都遵守HTTP1.1。HTTP1.1的特性就是可以进行持久连接<code>keep-alive</code>。</p>
 <h4 id="keep-alive"><a href="#keep-alive" class="headerlink" title="keep-alive"></a><strong>keep-alive</strong></h4><p>当首部包含<code>Connection: keep-alive</code>的时候，这个连接便是一个持久连接。<br>一个持久连接意味着，这个<strong>TCP连接是可复用</strong>的。当一次HTTP请求结束之后，又可以紧接着使用这个TCP通道发送其他的HTTP请求，这样就减少了TCP握手时间、慢启动，减轻了服务器的压力。</p>
 <p>那么问题来了，一个TCP连接里面会有这么多报文传输，确定第一个请求的首部是个很简单的事情，怎么确定他的实体长度，以及怎么分割这个HTTP请求实体后面的请求呢？</p>
@@ -143,9 +143,9 @@
             标签：
             
     
-        <a href="/tags/HTTP/" title="HTTP">HTTP</a> / 
+        <a href="/tags/server/" title="server">server</a> / 
     
-        <a href="/tags/server/" title="server">server</a>
+        <a href="/tags/HTTP/" title="HTTP">HTTP</a>
     
 
         </span>
@@ -225,11 +225,11 @@
   
     <a class="tag-item" href="/tags/linux/" title="linux">linux (4)</a>
   
-    <a class="tag-item" href="/tags/HTTP/" title="HTTP">HTTP (3)</a>
-  
     <a class="tag-item" href="/tags/server/" title="server">server (7)</a>
   
-    <a class="tag-item" href="/tags/生活/" title="生活">生活 (1)</a>
+    <a class="tag-item" href="/tags/HTTP/" title="HTTP">HTTP (3)</a>
+  
+    <a class="tag-item" href="/tags/面试经验/" title="面试经验">面试经验 (1)</a>
   
     <a class="tag-item" href="/tags/golang/" title="golang">golang (3)</a>
   

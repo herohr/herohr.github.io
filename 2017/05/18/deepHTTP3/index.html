@@ -127,6 +127,7 @@
     <div class="post-content">
         <h3 id="何为HTTP报文"><a href="#何为HTTP报文" class="headerlink" title="何为HTTP报文"></a><strong>何为HTTP报文</strong></h3><p>HTTP是一个“客户端-服务器”的协议，由任意端发起的、发送的<strong>数据</strong> 称为HTTP报文</p>
 <h3 id="报文的组成"><a href="#报文的组成" class="headerlink" title="报文的组成"></a><strong>报文的组成</strong></h3><p> HTTP报文是文本组成的，是人类可读的字符。<br>HTTP报文的的请求头必须以<code>回车换行符</code>（<code>\r\n</code>）来区分每一行，请求头与正文必须也有一个<code>\r\n</code>作为分隔。</p>
+ <a id="more"></a>
 <h4 id="请求报文"><a href="#请求报文" class="headerlink" title="请求报文"></a><strong>请求报文</strong></h4><h5 id="起始行"><a href="#起始行" class="headerlink" title="起始行"></a><strong>起始行</strong></h5><p>起始行是TCP建立之后发送的第一行数据，包含<strong>请求方法、请求的资源地址、客户端的HTTP版本</strong>。</p>
 <p>一个简单的HTTP请求报文起始行如下：<br><code>GET / HTTP/1.1\r\n</code><br><code>GET</code>方法是一个最简单的HTTP请求方法，代表着获取服务器上的某个资源。<br><code>/</code>是服务器的URL资源地址，如果请求的网址是<code>www.baidu.com</code>那么<code>/</code>就是直接访问这个网站的首页<br><code>HTTP/1.1</code>是最广泛的HTTP版本，现行浏览器都支持。<br>最后是一个回车换行符，代表着请求报文的起始行已经结束。</p>
 <h5 id="请求头"><a href="#请求头" class="headerlink" title="请求头"></a><strong>请求头</strong></h5><p>请求头应该包括起始行，这里主要指除了起始行的内容。<br>请求头一般包含一些简单的<code>键值对</code><br><code>Key: Value\r\n</code><br>可以有多个键值对，都以回车换行符分隔。</p>
@@ -146,9 +147,9 @@
             标签：
             
     
-        <a href="/tags/HTTP/" title="HTTP">HTTP</a> / 
+        <a href="/tags/server/" title="server">server</a> / 
     
-        <a href="/tags/server/" title="server">server</a>
+        <a href="/tags/HTTP/" title="HTTP">HTTP</a>
     
 
         </span>
@@ -228,11 +229,11 @@
   
     <a class="tag-item" href="/tags/linux/" title="linux">linux (4)</a>
   
-    <a class="tag-item" href="/tags/HTTP/" title="HTTP">HTTP (3)</a>
-  
     <a class="tag-item" href="/tags/server/" title="server">server (7)</a>
   
-    <a class="tag-item" href="/tags/生活/" title="生活">生活 (1)</a>
+    <a class="tag-item" href="/tags/HTTP/" title="HTTP">HTTP (3)</a>
+  
+    <a class="tag-item" href="/tags/面试经验/" title="面试经验">面试经验 (1)</a>
   
     <a class="tag-item" href="/tags/golang/" title="golang">golang (3)</a>
   

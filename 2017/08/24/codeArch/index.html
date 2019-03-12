@@ -127,6 +127,7 @@
     <div class="post-content">
         <p>最近开了一个新的idea，主要功能是仿照Fabric进行自动化部署与运维。<br>每有些人写代码是自下而上的，有些人写代码是自上而下的。<br>在前者的coding中，总会出现把细节处理结束后不知道怎么耦合各个模块。<br>在后者的coding中，总会出现实现细节的时候发现框架处理的不够完善，需要大修大改，牵一发而动全身。<br>代码写了1300行，可是项目好像只是完成一个小点，我就是自下而上写代码的。<br>在结束一个模块的时候，完成了各项的测试，我会发现很迷茫，怎么把这个模块整合到其他模块之中，这些模块就像一些工具包一样，只是能够完成某项功能，而不能给你灵感让你顺着他继续写下去。<br>我有几个心得，仅限Python代码</p>
 <h4 id="尝试使用try…except…else流程控制"><a href="#尝试使用try…except…else流程控制" class="headerlink" title="尝试使用try…except…else流程控制"></a>尝试使用try…except…else流程控制</h4><p>如果你写过Go的话，你就知道有多么痛苦。Python有异常机制，能够让程序捕获异常，还有那么好的捕获异常关键字。在一个复杂的流程中，可能出现各种不可预料的异常。当发生某项异常之后，你可以选择使用像Go一样层层return，也可以选择直接抛出异常，结束函数，让外部处理这个异常。<br>用这样的异常控制的语句，会明显清晰代码逻辑，避免繁杂的if判断语句。<br>示例</p>
+ <a id="more"></a>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> username_valid(username):</span><br><span class="line">    <span class="keyword">if</span> pw_valid(password):</span><br><span class="line">        <span class="keyword">if</span> varify(code):</span><br><span class="line">            user.set_pass()</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="string">"Varify..."</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"Password ..."</span></span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="keyword">return</span> <span class="string">"Username..."</span></span><br></pre></td></tr></table></figure>
 <p>这段完全可以改写成（忽略错误的类型）</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    check_valid(user)</span><br><span class="line"><span class="keyword">except</span> UsernameExp <span class="keyword">as</span> e:</span><br><span class="line">    <span class="keyword">return</span> e</span><br><span class="line"><span class="keyword">except</span> PasswordExp <span class="keyword">as</span> e:</span><br><span class="line">    <span class="keyword">return</span> e</span><br><span class="line"><span class="keyword">except</span> VarifyExp <span class="keyword">as</span> e:</span><br><span class="line">    <span class="keyword">return</span> e</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    user.<span class="keyword">pass</span>()</span><br><span class="line">    <span class="keyword">return</span> <span class="string">"Pass"</span></span><br></pre></td></tr></table></figure>
@@ -225,11 +226,11 @@
   
     <a class="tag-item" href="/tags/linux/" title="linux">linux (4)</a>
   
-    <a class="tag-item" href="/tags/HTTP/" title="HTTP">HTTP (3)</a>
-  
     <a class="tag-item" href="/tags/server/" title="server">server (7)</a>
   
-    <a class="tag-item" href="/tags/生活/" title="生活">生活 (1)</a>
+    <a class="tag-item" href="/tags/HTTP/" title="HTTP">HTTP (3)</a>
+  
+    <a class="tag-item" href="/tags/面试经验/" title="面试经验">面试经验 (1)</a>
   
     <a class="tag-item" href="/tags/golang/" title="golang">golang (3)</a>
   

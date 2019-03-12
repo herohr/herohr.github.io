@@ -127,7 +127,7 @@
     <div class="post-content">
         <p>Golang标准库里的json包位于<code>&quot;encoding/json&quot;</code></p>
 <h2 id="Struct-to-Json"><a href="#Struct-to-Json" class="headerlink" title="Struct to Json"></a>Struct to Json</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">在进行对象转换为 JSON 的过程中，会遵循如下几条规则：</span><br><span class="line"></span><br><span class="line">　　　　• 布尔型转换为 JSON 后仍是布尔型　， 如true -&gt; true</span><br><span class="line"></span><br><span class="line">　　　　• 浮点型和整数型转换后为JSON里面的常规数字，如 1.23 -&gt; 1.23</span><br><span class="line"></span><br><span class="line">　　　　• 字符串将以UTF-8编码转化输出为Unicode字符集的字符串，特殊字符比如&lt;将会被转义为\u003c</span><br><span class="line"></span><br><span class="line">　　　　• 数组和切片被转换为JSON 里面的数组，[]byte类会被转换为base64编码后的字符串，slice的零值被转换为null</span><br><span class="line"></span><br><span class="line">　　　　• 结构体会转化为JSON对象，并且只有结构体里边以大写字母开头的可被导出的字段才会被转化输出，而这些可导出的字段会作为JSON对象的字符串索引</span><br><span class="line"></span><br><span class="line">　　　　• 转化一个map 类型的数据结构时，该数据的类型必须是 map[string]T（T 可以是encoding/json 包支持的任意数据类型）</span><br></pre></td></tr></table></figure>
-<h3 id="导出"><a href="#导出" class="headerlink" title="导出"></a>导出</h3><p>定义一个结构体</p>
+<h3 id><a href="#" class="headerlink" title></a><a id="more"></a></h3><h3 id="导出"><a href="#导出" class="headerlink" title="导出"></a>导出</h3><p>定义一个结构体</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> User <span class="keyword">struct</span>&#123;</span><br><span class="line">    Id <span class="keyword">int</span></span><br><span class="line">    Username <span class="keyword">string</span></span><br><span class="line">    Sex <span class="keyword">int</span></span><br><span class="line">    password <span class="keyword">string</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    user := User&#123;<span class="number">1</span>, <span class="string">"Foo"</span>, <span class="number">1</span>&#125;</span><br><span class="line"></span><br><span class="line">    data, err := json.Marshal(user)</span><br><span class="line">    <span class="keyword">if</span> err != <span class="literal">nil</span>&#123;</span><br><span class="line">        fmt.Println(err)</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    &#125;</span><br><span class="line">    fmt.Println(<span class="keyword">string</span>(data))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;<span class="attr">"Id"</span>:<span class="number">1</span>,<span class="attr">"Username"</span>:<span class="string">"Foo"</span>,<span class="attr">"Sex"</span>:<span class="number">1</span>&#125;</span><br></pre></td></tr></table></figure>
 <p>根据上面的转换规则，只有首字母大写的字段才能被到处到js里，所以password是不能被导出的。</p>
@@ -231,11 +231,11 @@
   
     <a class="tag-item" href="/tags/linux/" title="linux">linux (4)</a>
   
-    <a class="tag-item" href="/tags/HTTP/" title="HTTP">HTTP (3)</a>
-  
     <a class="tag-item" href="/tags/server/" title="server">server (7)</a>
   
-    <a class="tag-item" href="/tags/生活/" title="生活">生活 (1)</a>
+    <a class="tag-item" href="/tags/HTTP/" title="HTTP">HTTP (3)</a>
+  
+    <a class="tag-item" href="/tags/面试经验/" title="面试经验">面试经验 (1)</a>
   
     <a class="tag-item" href="/tags/golang/" title="golang">golang (3)</a>
   

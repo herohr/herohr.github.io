@@ -130,6 +130,7 @@
 <p>和C语言非常相似</p>
 <h2 id="定义方法"><a href="#定义方法" class="headerlink" title="定义方法"></a><strong>定义方法</strong></h2><h3 id="值传递方法"><a href="#值传递方法" class="headerlink" title="值传递方法"></a>值传递方法</h3><p>值传递方法，即进入函数调用栈时再次为结构体划分内存，然后复制结构体。在值传递方法内修改属性，并不改变外部结构体的属性。</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(c Circle)</span> <span class="title">area</span><span class="params">()</span> <span class="title">float32</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">3.14</span> * c.r * c.r</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+ <a id="more"></a>
 <h3 id="引用传递方法"><a href="#引用传递方法" class="headerlink" title="引用传递方法"></a>引用传递方法</h3><p>引用传递方法，即进入函数调用栈时，仅仅传递一个引用，对结构体的操作都将影响外部结构体。</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(c *Circle)</span> <span class="title">setR</span><span class="params">(r <span class="keyword">float32</span>)</span></span>&#123;</span><br><span class="line">    c.r = r</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>总的来说，一般只读方法可以使用值传递，写方法使用引用传递。</p>
@@ -226,11 +227,11 @@
   
     <a class="tag-item" href="/tags/linux/" title="linux">linux (4)</a>
   
-    <a class="tag-item" href="/tags/HTTP/" title="HTTP">HTTP (3)</a>
-  
     <a class="tag-item" href="/tags/server/" title="server">server (7)</a>
   
-    <a class="tag-item" href="/tags/生活/" title="生活">生活 (1)</a>
+    <a class="tag-item" href="/tags/HTTP/" title="HTTP">HTTP (3)</a>
+  
+    <a class="tag-item" href="/tags/面试经验/" title="面试经验">面试经验 (1)</a>
   
     <a class="tag-item" href="/tags/golang/" title="golang">golang (3)</a>
   

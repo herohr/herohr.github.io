@@ -127,6 +127,7 @@
     <div class="post-content">
         <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Stringer <span class="keyword">interface</span> &#123;</span><br><span class="line">    String() <span class="keyword">string</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> MyType <span class="keyword">struct</span> &#123;</span><br><span class="line">    value <span class="keyword">string</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(m *MyType)</span> <span class="title">String</span><span class="params">()</span> <span class="title">string</span></span> &#123; <span class="keyword">return</span> m.value &#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">m := MyType&#123;value: <span class="string">"something"</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> s Stringer</span><br><span class="line">s = m <span class="comment">// cannot use m (type MyType) as type Stringer in assignment:</span></span><br><span class="line">      <span class="comment">//   MyType does not implement Stringer (String method has pointer receiver)</span></span><br></pre></td></tr></table></figure>
+ <a id="more"></a>
 <p>我们可以看到，String()方法具有一个pointer receiver，这导致了程序发生了运行时错误。</p>
 <p>实际上，<em>MyType是一个指针类型，而MyType是一个结构体。是</em>MyType实现了Stringer接口，而不是MyType。</p>
 <p>所以，上面的代码改成这样就可以运行了</p>
@@ -229,11 +230,11 @@
   
     <a class="tag-item" href="/tags/linux/" title="linux">linux (4)</a>
   
-    <a class="tag-item" href="/tags/HTTP/" title="HTTP">HTTP (3)</a>
-  
     <a class="tag-item" href="/tags/server/" title="server">server (7)</a>
   
-    <a class="tag-item" href="/tags/生活/" title="生活">生活 (1)</a>
+    <a class="tag-item" href="/tags/HTTP/" title="HTTP">HTTP (3)</a>
+  
+    <a class="tag-item" href="/tags/面试经验/" title="面试经验">面试经验 (1)</a>
   
     <a class="tag-item" href="/tags/golang/" title="golang">golang (3)</a>
   
