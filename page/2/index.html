@@ -134,6 +134,61 @@
         <!-- 文章标题 -->
         
     <h3 class="post-title">
+    	<a href="/2017/08/02/goStructnote/">
+    		Go中的结构体方法与接口
+    	</a>
+        
+    </h3>
+
+    </header>
+    <p class="post-meta">
+        HeroHR 发表于
+        <time datetime="2017-08-01T16:00:00.000Z">2017-08-02</time>
+        &nbsp;&nbsp;
+        <span class="post-tags">
+            标签：
+            
+    
+        <a href="/tags/golang/" title="golang">golang</a>
+    
+
+        </span>
+    </p>
+
+    <div class="post-content">
+        <div class="post-excerpt">
+            
+                <p>Go语言中的对象用结构体来表现，而对象的方法则是用函数来表现。</p>
+<h2 id="定义结构体"><a href="#定义结构体" class="headerlink" title="定义结构体"></a>定义结构体</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Circle <span class="keyword">struct</span>&#123;</span><br><span class="line">    r <span class="keyword">float32</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>和C语言非常相似</p>
+<h2 id="定义方法"><a href="#定义方法" class="headerlink" title="定义方法"></a><strong>定义方法</strong></h2><h3 id="值传递方法"><a href="#值传递方法" class="headerlink" title="值传递方法"></a>值传递方法</h3><p>值传递方法，即进入函数调用栈时再次为结构体划分内存，然后复制结构体。在值传递方法内修改属性，并不改变外部结构体的属性。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(c Circle)</span> <span class="title">area</span><span class="params">()</span> <span class="title">float32</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">3.14</span> * c.r * c.r</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="引用传递方法"><a href="#引用传递方法" class="headerlink" title="引用传递方法"></a>引用传递方法</h3><p>引用传递方法，即进入函数调用栈时，仅仅传递一个引用，对结构体的操作都将影响外部结构体。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(c *Circle)</span> <span class="title">setR</span><span class="params">(r <span class="keyword">float32</span>)</span></span>&#123;</span><br><span class="line">    c.r = r</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>总的来说，一般只读方法可以使用值传递，写方法使用引用传递。</p>
+<h2 id="定义接口"><a href="#定义接口" class="headerlink" title="定义接口"></a><strong>定义接口</strong></h2><p>实现了某些方法的对象，他们可以抽象出来一个接口。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Circle <span class="keyword">struct</span> &#123;</span><br><span class="line">    radius <span class="keyword">float32</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> Square <span class="keyword">struct</span> &#123;</span><br><span class="line">    sideLength <span class="keyword">float32</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(s Square)</span> <span class="title">area</span><span class="params">()</span><span class="title">float32</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> s.sideLength * s.sideLength</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(c Circle)</span> <span class="title">area</span><span class="params">()</span> <span class="title">float32</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">3.14</span> * c.radius * c.radius</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> geometry <span class="keyword">interface</span> &#123;</span><br><span class="line">    area() <span class="keyword">float32</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">printArea</span><span class="params">(g geometry)</span></span>&#123;</span><br><span class="line">    fmt.Println(g.area())</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>正方形和圆形都实现了area()的方法，所以可以定义一个几何体的接口。q实现了area方法的结构体都可以使用这个接口。</p>
+
+            
+            <p class="more">
+                <a href="/2017/08/02/goStructnote/">阅读剩下更多</a>
+            </p>
+        </div>
+    </div>
+</article>
+
+    
+        <!-- 文章列表 item -->
+<article class="post">
+    <header>
+        <!-- 标签这有且只能显示一个 -->
+        
+        <a class="cat-link" href="/categories/编程/">编程</a>
+        
+        <!-- 文章标题 -->
+        
+    <h3 class="post-title">
     	<a href="/2017/07/24/socks/">
     		啥都扫个死的搭建笔记
     	</a>
@@ -246,9 +301,9 @@
             标签：
             
     
-        <a href="/tags/server/" title="server">server</a> / 
+        <a href="/tags/HTTP/" title="HTTP">HTTP</a> / 
     
-        <a href="/tags/HTTP/" title="HTTP">HTTP</a>
+        <a href="/tags/server/" title="server">server</a>
     
 
         </span>
@@ -300,9 +355,9 @@
             标签：
             
     
-        <a href="/tags/server/" title="server">server</a> / 
+        <a href="/tags/HTTP/" title="HTTP">HTTP</a> / 
     
-        <a href="/tags/HTTP/" title="HTTP">HTTP</a>
+        <a href="/tags/server/" title="server">server</a>
     
 
         </span>
@@ -355,9 +410,9 @@
             标签：
             
     
-        <a href="/tags/server/" title="server">server</a> / 
+        <a href="/tags/HTTP/" title="HTTP">HTTP</a> / 
     
-        <a href="/tags/HTTP/" title="HTTP">HTTP</a>
+        <a href="/tags/server/" title="server">server</a>
     
 
         </span>
@@ -646,9 +701,11 @@
   
     <a class="tag-item" href="/tags/linux/" title="linux">linux (4)</a>
   
+    <a class="tag-item" href="/tags/HTTP/" title="HTTP">HTTP (3)</a>
+  
     <a class="tag-item" href="/tags/server/" title="server">server (7)</a>
   
-    <a class="tag-item" href="/tags/HTTP/" title="HTTP">HTTP (3)</a>
+    <a class="tag-item" href="/tags/生活/" title="生活">生活 (1)</a>
   
     <a class="tag-item" href="/tags/golang/" title="golang">golang (3)</a>
   

@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=11,IE=10,IE=9,IE=8">
     <meta name="baidu-site-verification" content="dIcXMeY8Ya">
     
-    <title>文章归档: 2019/2 | 叁拾柒</title>
+    <title>`生活`标签下的文章 | 叁拾柒</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
     <meta name="keywords" content="37a, Python, Web, herohr, 后端技术, 叁拾柒">
     <meta name="description" content="37a的个人博客">
@@ -56,19 +56,19 @@
         <div class="dropnav icon-paragraph-justify" id="JELON__btnDropNav"></div>
         <ul class="menu hidden" id="JELON__menu">
             
-            <li rel="/archives/2019/02/index.html" class="item ">
+            <li rel="/tags/生活/index.html" class="item ">
                 <a href="/" title="首页" class="icon-home">&nbsp;首页</a>
             </li>
             
-            <li rel="/archives/2019/02/index.html" class="item ">
+            <li rel="/tags/生活/index.html" class="item ">
                 <a href="/lab/" title="代码" class="icon-lab">&nbsp;代码</a>
             </li>
             
-            <li rel="/archives/2019/02/index.html" class="item ">
+            <li rel="/tags/生活/index.html" class="item ">
                 <a href="/photo/" title="掠影" class="icon-about">&nbsp;掠影</a>
             </li>
             
-            <li rel="/archives/2019/02/index.html" class="item ">
+            <li rel="/tags/生活/index.html" class="item ">
                 <a href="/about/" title="关于" class="icon-comment">&nbsp;关于</a>
             </li>
             
@@ -113,13 +113,12 @@
     <div class="container body clearfix">
         <section class="content">
             <div class="content-main widget">
-                <!-- 文章归档 -->
+                <!-- 按标签分类 -->
 
     <h3 class="widget-hd">
         <strong>
             
-                文章归档
-                <!-- 文章归档，可以根据日期分类 -->
+                `生活`标签下的文章
             
         </strong>
     </h3>
@@ -129,13 +128,13 @@
     <header>
         <!-- 标签这有且只能显示一个 -->
         
-        <a class="cat-link" href="/categories/编程/">编程</a>
+            <a href="javascript: void(0);" class="cat">未分类</a>
         
         <!-- 文章标题 -->
         
     <h3 class="post-title">
-    	<a href="/2019/02/17/shortspeakofj2ee/">
-    		J2EE初窥（一）
+    	<a href="/2019/03/12/facetestExp/">
+    		字节跳动商业变现部门实习一二三HR面经
     	</a>
         
     </h3>
@@ -143,13 +142,13 @@
     </header>
     <p class="post-meta">
         HeroHR 发表于
-        <time datetime="2019-02-17T10:10:15.000Z">2019-02-17</time>
+        <time datetime="2019-03-12T06:22:00.000Z">2019-03-12</time>
         &nbsp;&nbsp;
         <span class="post-tags">
             标签：
             
     
-        <a href="/tags/J2EE/" title="J2EE">J2EE</a>
+        <a href="/tags/生活/" title="生活">生活</a>
     
 
         </span>
@@ -158,64 +157,66 @@
     <div class="post-content">
         <div class="post-excerpt">
             
-                <h1 id="Java-EE"><a href="#Java-EE" class="headerlink" title="Java EE"></a>Java EE</h1><p>Java重量级开发平台Java Enterprise Edition主要面向于服务端，提供了一整套完备的、工程化的开发框架，为开发大中型服务端应用提供了整套解决方案。</p>
-<p>Java EE框架组件包含了web技术的jsp、servlet、Structs2，业务层的EJava Bean，持久化层的MyBatis、JPA等。</p>
-<h2 id="Web技术"><a href="#Web技术" class="headerlink" title="Web技术"></a>Web技术</h2><h3 id="JSP"><a href="#JSP" class="headerlink" title="JSP"></a>JSP</h3><p>Java Server Page是一种以HTML为主，中间穿插Java代码的服务端语言。JSP的创造主要是为了解决视图层中页面逻辑与业务逻辑纠缠的问题，将HTML渲染放到服务器端来做。</p>
-<p>随着前端技术的不断发展，前后端分离的架构已经成为主流，JSP难以符合软件工程的要求，JSP渐渐已经退出Java Web技术主流，仅在政企及学校继续苟延残喘。</p>
-<h3 id="Servlet"><a href="#Servlet" class="headerlink" title="Servlet"></a>Servlet</h3><h4 id="Servlet与容器"><a href="#Servlet与容器" class="headerlink" title="Servlet与容器"></a>Servlet与容器</h4><p>Servlet作为Java EE的代表框架，撑起了Java 服务端技术的半边天。Servlet是服务端小程序，一个Servlet仅仅是一个类，而他则依赖于其背后的Servlet框架及web容器。流行的容器比如Tomcat，它将HTTP请求进行处理和预包装，向下传递给Servlet，Servlet进行业务逻辑处理，向上传递给Tomcat，Tomcat再将响应回送给客户端。这种架构很像Apache与PHP、Gunicorn与Django（<del>DaiAnGou</del>）.</p>
-<p><img src="https://s2.ax1x.com/2019/02/17/kyJcut.png" alt="img"></p>
-<h4 id="Servlet结构与生命周期"><a href="#Servlet结构与生命周期" class="headerlink" title="Servlet结构与生命周期"></a>Servlet结构与生命周期</h4><p>Servlet类有init方法、destroy方法，分别在Servlet实例被调用时及被销毁时调用。</p>
-<p>Servlet类有service方法，当一个请求到达时（无论method如何）则会将请求传递给service方法，进行处理。但是，一般情况下并不重写service方法，因为service方法还会继续传递请求给doGet、doPost、doXXX方法继续处理。doGet等方法在请求属于对应method的情况下调用。</p>
-<p><img src="https://s2.ax1x.com/2019/02/17/kytCWQ.png" alt="img"></p>
-<p>如上图，当第一个符合该servlet应服务的请求到达时，才将该servlet的init方法调用，之后的请求到达时，不再调用该方法，直接进入service方法处理。当受到终止服务时，调用destroy方法。</p>
-<h4 id="Filter过滤器"><a href="#Filter过滤器" class="headerlink" title="Filter过滤器"></a>Filter过滤器</h4><p>用户验证、表单验证、编码转换等对于请求的预处理在许多处理逻辑中都具有，Filter则将其解耦。Filter的设计核心是职责链模式，对于某个请求，需要进行多步过滤，为了让每一个过滤器都有机会过滤，将各个过滤器按顺序排为过滤器链(FilterChain)。</p>
-<p>Filter不仅仅具有前过滤，还拥有后过滤，也就是在其他下级过滤器或Servlet处理完之后再进行过滤，以达到重新编码、Cookie设置等操作。</p>
-<p><img src="https://s2.ax1x.com/2019/02/17/kydGge.png" alt="img"></p>
-<p>（国标上要求国内网站都要以GBK编码，但一般程序却善于处理UTF编码，故编解码问题是一个令人头疼的问题，编写一个编解码过滤器，将会巧妙解决该问题）</p>
+                <h3 id="一面-基础面"><a href="#一面-基础面" class="headerlink" title="一面 基础面"></a>一面 基础面</h3><p>一面是一个二十四五左右的小哥，问的问题很全面、很齐备，在我说的过程中还会不断地嗯以表肯定。时间大概一小时左右。</p>
+<ol>
+<li>自我介绍</li>
+<li>项目介绍</li>
+<li>由项目问相关问题。场景：外卖配送轨迹如何实现，如何显示路径。答：PostgreSQL+PostGIS</li>
+<li>Python与Golang线程的特点</li>
+<li>Python协程，Python2有协程吗？Gevent如何在Python中实现？不用ascync如何实现？答：yield、yield form</li>
+<li>Golang协程的特点？答：抢占式调度</li>
+<li>了解Python其他框架吗？Tornado了解吗？他是如何实现异步的？</li>
+<li>协程是为了解决什么样的问题而被创造？答：避免线程切换，解决IO密集型场景</li>
+<li>有没有使用协程来解决IO密集型场景？答：写了一个demo库</li>
+<li>Python如何实现单例模式？答：<strong>new</strong>方法实现</li>
+<li>new方法和init方法的区别？答：new返回对象，init初始化对象，调用init之前对象已经被创建。</li>
+<li>Python对象继承顺序？答：多继承-广度优先遍历。面试官说不一定是广度优先</li>
+<li>Python的GC方式？答：引用计数、可达性分析、（分代回收）</li>
+<li>Golang的GC方式？答：不了解</li>
+<li>Django和Flask的区别？答：Flask轻量化、Django重量级</li>
+<li>Djanog和Flask ORM的实现和区别？答：不了解</li>
+<li>ORM如何查询id!=1如何查询？答：长时间没用。</li>
+<li>Django ORM高阶查询 F查询 Q查询？</li>
+<li>什么是储存过程？</li>
+<li>RestFul中 GET和POST方法的区别？</li>
+<li>HTTP协议是在那一层协议？</li>
+<li>TCP协议在那一层协议？这里错答为网络层。。。白给。。。</li>
+<li>为什么三次握手和四次挥手？次数为什么有区别讲讲为什么？</li>
+<li>给一个无序数组，找出所有和为0的三个数，时间复杂度为N方以下。答：先排序，再使用头尾指针寻找。</li>
+</ol>
+<h3 id="二面-项目面"><a href="#二面-项目面" class="headerlink" title="二面 项目面"></a>二面 项目面</h3><p>二面全程怼项目，然而简历项目年代久远，许久未使用，导致许多问题没回答上来，我觉得可能是面试官想探究我的项目深度，所以一直在引导。而且更尴尬的是，和面试官同穿一件红色格子衬衫，蜜汁尴尬….</p>
+<ol>
+<li>自我介绍、项目介绍</li>
+<li>对SQLAlchemy的了解？对SQLAlchemy所用到的功能？</li>
+<li>Celery了解吗？怎么使用的？</li>
+<li>前端文件上传是怎么实现的？上传文件时的表单编码方式是什么？</li>
+<li>验证码如何实现的？你怎么用Python生成一个验证码？</li>
+<li>你为什么学Python？</li>
+<li>你接触过爬虫吗？如果是需要登录的网站？</li>
+<li>HTTP了解多少？状态码怎么分？302如何知道重定向的地址？常用的方法知道哪些？HEAD和OPTION是干什么的？</li>
+<li>登陆后，如何保存登录的状态？Session是客户端存储还是服务器储存？SessionID存在哪？Cookie怎么传给服务端？Cookie请求头具体叫什么？</li>
+<li>Linux使用的熟悉吗？在文件夹中搜索包含某个内容的文件使用什么命令？</li>
+<li>智力题：给两个可以点燃的绳子，一根绳子烧完是一小时，介质不均匀，燃烧到中间时不一定是半小时，如何测量15分钟？答：先同时点燃一根绳子的AB端，再点燃另一个绳子的A端，当第一根绳子燃烧玩时，为30分钟，这时再点燃另一个绳子的B端，开始计时，烧完即为15分钟</li>
+<li>算法题：LeetCode原题第二题，链表两数相加</li>
+</ol>
+<h3 id="三面boss面"><a href="#三面boss面" class="headerlink" title="三面boss面"></a>三面boss面</h3><p>三面竟然是一个小姐姐，小姐姐也挺年轻，听说非技术出身。大概就是谈谈项目，谈谈学习，然后根据项目问一问项目中的技术细节。</p>
+<ol>
+<li>算法题：给出两个栈，实现一个队列。秒了后小姐姐要加上size方法，加上为空时候抛出异常，继续秒了。。。</li>
+<li>算法题：有一个绳子，上面有红色白色蓝色的旗子，让只是用交换的方式按红白蓝顺序分块。这个题…后来想一想简直就是……冒泡排序等空间为O1的排序…….我真的震惊了，当时没想到这么简单，用了头尾指针方式进行交换，结果有一个逻辑漏洞，小姐姐让我下去想一想，就去叫HR面了</li>
+<li>然后最后杀了个回马枪，问操作系统了解多少，进程间通信的方式有哪些？还好没难住…</li>
+</ol>
+<h3 id="HR面"><a href="#HR面" class="headerlink" title="HR面"></a>HR面</h3><p>HR小姐姐打的电话，可能是因为我当时的网络不好所以没有视频面试。问了一下学习方式，生活方式。还有为什么想来头条。</p>
+<p>头条是面的第几家公司？为什么第一次就面头条？答：头条几年来增长非常快，我希望能够和头条一起成长。</p>
+<p>还有没有想面其他公司？答：没有</p>
+<p>大四啥时候要回学校？怎么安排？毕业之后想不想在头条工作？答：希望….</p>
+<p>平时是怎么学习的？平时关注哪些技术？有没有个人博客？答：大一就开始写博客了，地址在简历上。</p>
+<p>爱学习嘛？答：爱过，自己时间规划比较好。有什么缺点？答：懒… 小姐姐估计崩溃了，问我为什么又懒又爱学习？？？</p>
+<p>最后问我有什么问的，问了一下公司地点和薪酬，确定了一下上班时间。</p>
+<p>…最后还问我能接受大小周嘛？抗压能力大不大？我反正是被吓到了…可是互联网公司很普遍啦</p>
 
             
             <p class="more">
-                <a href="/2019/02/17/shortspeakofj2ee/">阅读剩下更多</a>
-            </p>
-        </div>
-    </div>
-</article>
-
-    
-        <!-- 文章列表 item -->
-<article class="post">
-    <header>
-        <!-- 标签这有且只能显示一个 -->
-        
-        <a class="cat-link" href="/categories/生活/">生活</a>
-        
-        <!-- 文章标题 -->
-        
-    <h3 class="post-title">
-    	<a href="/2019/02/07/2019/">
-    		2019
-    	</a>
-        
-    </h3>
-
-    </header>
-    <p class="post-meta">
-        HeroHR 发表于
-        <time datetime="2019-02-07T11:01:31.000Z">2019-02-07</time>
-        &nbsp;&nbsp;
-        <span class="post-tags">
-            标签：
-            
-        </span>
-    </p>
-
-    <div class="post-content">
-        <div class="post-excerpt">
-            
-                <h1 id="Hello-2019"><a href="#Hello-2019" class="headerlink" title="Hello 2019"></a>Hello 2019</h1><h2 id="猪年大吉"><a href="#猪年大吉" class="headerlink" title="猪年大吉"></a>猪年大吉</h2>
-            
-            <p class="more">
-                <a href="/2019/02/07/2019/">阅读剩下更多</a>
+                <a href="/2019/03/12/facetestExp/">阅读剩下更多</a>
             </p>
         </div>
     </div>
