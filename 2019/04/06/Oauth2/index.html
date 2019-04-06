@@ -127,6 +127,7 @@
     <div class="post-content">
         <h4 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h4><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p><a href="http://en.wikipedia.org/wiki/OAuth" target="_blank" rel="noopener">OAuth</a>是一个关于授权（authorization）的开放网络标准，在全世界得到广泛应用，目前的版本是2.0版。在目前互联网平台上，大多数存在三方的应用场景下，都使用OAuth做授权协议。</p>
 <p>OAuth协议有效的保证了客户对第三方App的授权限制。但OAuth必须以HTTPS为基础。</p>
+ <a id="more"></a>
 <h2 id="场景"><a href="#场景" class="headerlink" title="场景"></a>场景</h2><p>我们经常看到许多网站提供了QQ登录的入口，点击这个入口，将提示用户输入QQ账号和密码（注意此时URL地址应该为腾讯），然后在显示出该APP所需要的权限，用户点击授权之后即利用QQ登录了网站。</p>
 <p>乍一看好像是QQ作为了第三方app，该网站成为了主体。其实，在此场景中，该网站作为第三方，利用用户的授权，获得了用户在QQ的信息。</p>
 <p>那么现在来看，我们可将该网站视为<strong>第三方App</strong>，将用户视为<strong>资源的拥有者</strong>，将QQ视为<strong>权限服务器</strong>和<strong>资源服务器</strong>，浏览器可视为<strong>用户代理</strong>。（当然权限服务器和资源服务器可以分开）</p>
