@@ -178,6 +178,110 @@
         <!-- 文章标题 -->
         
     <h3 class="post-title">
+    	<a href="/2019/03/06/Oauth2/">
+    		OAuth2.0 简析（一）
+    	</a>
+        
+    </h3>
+
+    </header>
+    <p class="post-meta">
+        HeroHR 发表于
+        <time datetime="2019-03-06T02:56:13.000Z">2019-03-06</time>
+        &nbsp;&nbsp;
+        <span class="post-tags">
+            标签：
+            
+    
+        <a href="/tags/HTTP/" title="HTTP">HTTP</a> / 
+    
+        <a href="/tags/server/" title="server">server</a>
+    
+
+        </span>
+    </p>
+
+    <div class="post-content">
+        <div class="post-excerpt">
+            
+                <h4 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h4><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p><a href="http://en.wikipedia.org/wiki/OAuth" target="_blank" rel="noopener">OAuth</a>是一个关于授权（authorization）的开放网络标准，在全世界得到广泛应用，目前的版本是2.0版。在目前互联网平台上，大多数存在三方的应用场景下，都使用OAuth做授权协议。</p>
+<p>OAuth协议有效的保证了客户对第三方App的授权限制。但OAuth必须以HTTPS为基础。</p>
+<h2 id="场景"><a href="#场景" class="headerlink" title="场景"></a>场景</h2><p>我们经常看到许多网站提供了QQ登录的入口，点击这个入口，将提示用户输入QQ账号和密码（注意此时URL地址应该为腾讯），然后在显示出该APP所需要的权限，用户点击授权之后即利用QQ登录了网站。</p>
+<p>乍一看好像是QQ作为了第三方app，该网站成为了主体。其实，在此场景中，该网站作为第三方，利用用户的授权，获得了用户在QQ的信息。</p>
+<p>那么现在来看，我们可将该网站视为<strong>第三方App</strong>，将用户视为<strong>资源的拥有者</strong>，将QQ视为<strong>权限服务器</strong>和<strong>资源服务器</strong>，浏览器可视为<strong>用户代理</strong>。（当然权限服务器和资源服务器可以分开）</p>
+<p>整理一下，资源拥有者将自己在资源服务器的权限给予第三方App，第三方App通过用户的授权访问权限服务器获得权限，然后使用权限在资源服务器中获取资源。</p>
+<h2 id="模式"><a href="#模式" class="headerlink" title="模式"></a>模式</h2><p>客户端必须得到用户的授权（authorization grant），才能获得令牌（access token）。OAuth 2.0定义了四种授权方式。</p>
+<ul>
+<li>授权码模式（authorization code）</li>
+<li>简化模式（implicit）</li>
+<li>密码模式（resource owner password credentials）</li>
+<li>客户端模式（client credentials）</li>
+</ul>
+<h2 id="授权码模式"><a href="#授权码模式" class="headerlink" title="授权码模式"></a>授权码模式</h2><p><img src="https://s2.ax1x.com/2019/04/06/AWbHjU.jpg" alt="流程图"></p>
+<p>授权码模式是最典型的一种模式，上图是我绘制的比较清楚的授权码模式流程图，通过此图即可了解整个授权流程。</p>
+<p>我将借鉴阮一峰的博客-授权码模式段落尝试描述该授权过程。</p>
+<ol>
+<li><p>用户访问第三方APP，第三方APP给出OAuth服务器地址，也就是图中的1、2、3步骤</p>
+<p>下面的URL地址为第三方APP给予的，也是用户需要访问的OAuth地址。</p>
+<figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">GET /authorize?response_type=code&amp;client_id=s6BhdRkqt3&amp;state=xyz</span><br><span class="line">        &amp;redirect_uri=https%3A%2F%2Fclient%2Eexample%2Ecom%2Fcb HTTP/1.1</span><br><span class="line"><span class="attribute">Host</span>: server.example.com</span><br><span class="line"><span class="attribute">response_type：表示授权类型，必选项，此处的值固定为"code"</span></span><br></pre></td></tr></table></figure>
+<p>client_id：表示第三方APP ID，必选项</p>
+<p>redirect_uri：表示重定向URI，可选项</p>
+<p>scope：表示申请的权限范围，可选项</p>
+<p>state：表示客户端的当前状态，可以指定任意值，认证服务器会原封不动地返回这个值。</p>
+</li>
+<li><p>OAuth服务器返回给用户授权码，并重定向至上一步骤中的回调URL中。对应图中4步骤</p>
+<p>注意， 此授权码以URL参数的方式返回给用户，用户不必储存授权码。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">HTTP/1.1 <span class="number">302</span> Found</span><br><span class="line"><span class="attribute">Location</span>: https://client.example.com/cb?code=SplxlOBeZQQYbYS6WxSbIA</span><br><span class="line">          &amp;state=xyz</span><br></pre></td></tr></table></figure>
+<ul>
+<li>code：表示授权码，必选项。该码的有效期应该很短，通常设为10分钟，客户端只能使用该码一次，否则会被授权服务器拒绝。该码与客户端ID和重定向URI，是一一对应关系。</li>
+<li>state：如果客户端的请求中包含这个参数，认证服务器的回应也必须一模一样包含这个参数。</li>
+</ul>
+</li>
+<li><p>用户收到重定向响应，对第三方APP发起请求，并附带上授权码，对应图中5步骤</p>
+</li>
+<li><p>第三方APP收到授权码，对OAuth服务器发起请求，附带上授权码，请求权限，对应图中6步骤</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">POST</span> <span class="string">/token</span> HTTP/1.1</span><br><span class="line"><span class="attribute">Host</span>: server.example.com</span><br><span class="line"><span class="attribute">Authorization</span>: Basic czZCaGRSa3F0MzpnWDFmQmF0M2JW</span><br><span class="line"><span class="attribute">Content-Type</span>: application/x-www-form-urlencoded</span><br><span class="line"></span><br><span class="line">grant_type=authorization_code&amp;code=SplxlOBeZQQYbYS6WxSbIA</span><br><span class="line">&amp;redirect_uri=https%3A%2F%2Fclient%2Eexample%2Ecom%2Fcb</span><br></pre></td></tr></table></figure>
+<p>注意，Authorization 首部常常根据Appid 及 Appsecret计算得到，具体鉴权方式由具体文档给出。</p>
+<ul>
+<li>grant_type：表示使用的授权模式，必选项，此处的值固定为”authorization_code”。</li>
+<li>code：表示上一步获得的授权码，必选项。</li>
+<li>redirect_uri：表示重定向URI，必选项，且必须与A步骤中的该参数值保持一致。</li>
+<li>client_id：表示客户端ID，必选项。 此客户端ID常常指的是Appid(存疑)</li>
+</ul>
+</li>
+<li><p>OAuth检查授权码是否有效，对第三方APP授权，发放token。对应图中步骤8</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">HTTP/1.1 <span class="number">200</span> OK</span><br><span class="line"><span class="attribute">Content-Type</span>: application/json;charset=UTF-8</span><br><span class="line"><span class="attribute">Cache-Control</span>: no-store</span><br><span class="line"><span class="attribute">Pragma</span>: no-cache</span><br><span class="line">   </span><br><span class="line">&#123;</span><br><span class="line">  "access_token":"2YotnFZFEjr1zCsicMWpAA",</span><br><span class="line">  "token_type":"example",</span><br><span class="line">  "expires_in":3600,</span><br><span class="line">  "refresh_token":"tGzv3JOkF0XG5Qx2TlKWIA",</span><br><span class="line">  "example_parameter":"example_value"</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>access_token：表示访问令牌，必选项。</li>
+<li>token_type：表示令牌类型，该值大小写不敏感，必选项，可以是bearer类型或mac类型。</li>
+<li>expires_in：表示过期时间，单位为秒。如果省略该参数，必须其他方式设置过期时间。</li>
+<li>refresh_token：表示更新令牌，用来获取下一次的访问令牌，可选项。</li>
+<li>scope：表示权限范围，如果与客户端申请的范围一致，此项可省略。</li>
+</ul>
+</li>
+<li><p>第三方App返回给用户授权成功响应，至此授权码模式流程结束，之后即可使用token对访问进行授权。对应图中步骤8</p>
+</li>
+</ol>
+
+            
+            <p class="more">
+                <a href="/2019/03/06/Oauth2/">阅读剩下更多</a>
+            </p>
+        </div>
+    </div>
+</article>
+
+    
+        <!-- 文章列表 item -->
+<article class="post">
+    <header>
+        <!-- 标签这有且只能显示一个 -->
+        
+            <a href="javascript: void(0);" class="cat">未分类</a>
+        
+        <!-- 文章标题 -->
+        
+    <h3 class="post-title">
     	<a href="/2019/03/06/datastuctureandalgorithm/">
     		数据结构与算法回顾（一）
     	</a>
@@ -382,11 +486,11 @@
         <!-- 文章标签 -->
 <div class="widget-bd tag-wrap">
   
+    <a class="tag-item" href="/tags/HTTP/" title="HTTP">HTTP (4)</a>
+  
+    <a class="tag-item" href="/tags/server/" title="server">server (8)</a>
+  
     <a class="tag-item" href="/tags/linux/" title="linux">linux (4)</a>
-  
-    <a class="tag-item" href="/tags/server/" title="server">server (7)</a>
-  
-    <a class="tag-item" href="/tags/HTTP/" title="HTTP">HTTP (3)</a>
   
     <a class="tag-item" href="/tags/面试经验/" title="面试经验">面试经验 (1)</a>
   

@@ -134,6 +134,51 @@
         <!-- 文章标题 -->
         
     <h3 class="post-title">
+    	<a href="/2017/08/24/codeArch/">
+    		小型项目的代码组织
+    	</a>
+        
+    </h3>
+
+    </header>
+    <p class="post-meta">
+        HeroHR 发表于
+        <time datetime="2017-08-23T16:00:00.000Z">2017-08-24</time>
+        &nbsp;&nbsp;
+        <span class="post-tags">
+            标签：
+            
+    
+        <a href="/tags/server/" title="server">server</a>
+    
+
+        </span>
+    </p>
+
+    <div class="post-content">
+        <div class="post-excerpt">
+            
+                <p>最近开了一个新的idea，主要功能是仿照Fabric进行自动化部署与运维。<br>每有些人写代码是自下而上的，有些人写代码是自上而下的。<br>在前者的coding中，总会出现把细节处理结束后不知道怎么耦合各个模块。<br>在后者的coding中，总会出现实现细节的时候发现框架处理的不够完善，需要大修大改，牵一发而动全身。<br>代码写了1300行，可是项目好像只是完成一个小点，我就是自下而上写代码的。<br>在结束一个模块的时候，完成了各项的测试，我会发现很迷茫，怎么把这个模块整合到其他模块之中，这些模块就像一些工具包一样，只是能够完成某项功能，而不能给你灵感让你顺着他继续写下去。<br>我有几个心得，仅限Python代码</p>
+<h4 id="尝试使用try…except…else流程控制"><a href="#尝试使用try…except…else流程控制" class="headerlink" title="尝试使用try…except…else流程控制"></a>尝试使用try…except…else流程控制</h4><p>如果你写过Go的话，你就知道有多么痛苦。Python有异常机制，能够让程序捕获异常，还有那么好的捕获异常关键字。在一个复杂的流程中，可能出现各种不可预料的异常。当发生某项异常之后，你可以选择使用像Go一样层层return，也可以选择直接抛出异常，结束函数，让外部处理这个异常。<br>用这样的异常控制的语句，会明显清晰代码逻辑，避免繁杂的if判断语句。<br>示例</p>
+            
+            <p class="more">
+                <a href="/2017/08/24/codeArch/">阅读剩下更多</a>
+            </p>
+        </div>
+    </div>
+</article>
+
+    
+        <!-- 文章列表 item -->
+<article class="post">
+    <header>
+        <!-- 标签这有且只能显示一个 -->
+        
+        <a class="cat-link" href="/categories/编程/">编程</a>
+        
+        <!-- 文章标题 -->
+        
+    <h3 class="post-title">
     	<a href="/2017/08/02/goStructnote/">
     		Go中的结构体方法与接口
     	</a>
@@ -287,9 +332,9 @@
             标签：
             
     
-        <a href="/tags/server/" title="server">server</a> / 
+        <a href="/tags/HTTP/" title="HTTP">HTTP</a> / 
     
-        <a href="/tags/HTTP/" title="HTTP">HTTP</a>
+        <a href="/tags/server/" title="server">server</a>
     
 
         </span>
@@ -334,9 +379,9 @@
             标签：
             
     
-        <a href="/tags/server/" title="server">server</a> / 
+        <a href="/tags/HTTP/" title="HTTP">HTTP</a> / 
     
-        <a href="/tags/HTTP/" title="HTTP">HTTP</a>
+        <a href="/tags/server/" title="server">server</a>
     
 
         </span>
@@ -381,9 +426,9 @@
             标签：
             
     
-        <a href="/tags/server/" title="server">server</a> / 
+        <a href="/tags/HTTP/" title="HTTP">HTTP</a> / 
     
-        <a href="/tags/HTTP/" title="HTTP">HTTP</a>
+        <a href="/tags/server/" title="server">server</a>
     
 
         </span>
@@ -544,59 +589,10 @@
 </article>
 
     
-        <!-- 文章列表 item -->
-<article class="post">
-    <header>
-        <!-- 标签这有且只能显示一个 -->
-        
-        <a class="cat-link" href="/categories/编程/">编程</a>
-        
-        <!-- 文章标题 -->
-        
-    <h3 class="post-title">
-    	<a href="/2017/03/01/holeinpython/">
-    		震惊，Python中竟然有这种史诗巨坑
-    	</a>
-        
-    </h3>
-
-    </header>
-    <p class="post-meta">
-        HeroHR 发表于
-        <time datetime="2017-02-28T16:00:00.000Z">2017-03-01</time>
-        &nbsp;&nbsp;
-        <span class="post-tags">
-            标签：
-            
-    
-        <a href="/tags/python/" title="python">python</a>
-    
-
-        </span>
-    </p>
-
-    <div class="post-content">
-        <div class="post-excerpt">
-            
-                <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">lis = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">2</span> ,<span class="number">1</span> ,<span class="number">1</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> lis:</span><br><span class="line">	<span class="keyword">if</span> i == <span class="number">1</span>:</span><br><span class="line">		lis.remove(i)</span><br><span class="line">print(lis)</span><br></pre></td></tr></table></figure>
-<p><code>OUT : [2, 2, 1, 1]</code></p>
-<p>这是怎么回事？</p>
-<p>按照Python工程师的逻辑，这种bug不可能会出现</p>
-<p><code>for</code>循环内部使用一个列表的下标进行遍历，每循环一遍，下标自增</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">remove</span><span class="params">(<span class="keyword">int</span> lis[],val)</span></span>&#123;</span><br><span class="line">  <span class="keyword">while</span> lis[i]&#123; <span class="comment">//姑且这么判断数组边界</span></span><br><span class="line">    <span class="keyword">if</span>(lis[i]==val)&#123;</span><br><span class="line">      <span class="keyword">int</span> j=i</span><br><span class="line">      <span class="keyword">while</span> lis[j+<span class="number">1</span>]&#123;</span><br><span class="line">        lis[j] = lis[j+<span class="number">1</span>]; <span class="comment">//将数组前移</span></span><br><span class="line">        j++;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    i++;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-            
-            <p class="more">
-                <a href="/2017/03/01/holeinpython/">阅读剩下更多</a>
-            </p>
-        </div>
-    </div>
-</article>
-
-    
 
     
     <nav class="page-navigator">
-        <a class="extend prev" rel="prev" href="/archives/">前一页</a><a class="page-number" href="/archives/">1</a><span class="page-number current">2</span>
+        <a class="extend prev" rel="prev" href="/archives/">前一页</a><a class="page-number" href="/archives/">1</a><span class="page-number current">2</span><a class="page-number" href="/archives/page/3/">3</a><a class="extend next" rel="next" href="/archives/page/3/">后一页</a>
     </nav>
     
 
@@ -630,11 +626,11 @@
         <!-- 文章标签 -->
 <div class="widget-bd tag-wrap">
   
+    <a class="tag-item" href="/tags/HTTP/" title="HTTP">HTTP (4)</a>
+  
+    <a class="tag-item" href="/tags/server/" title="server">server (8)</a>
+  
     <a class="tag-item" href="/tags/linux/" title="linux">linux (4)</a>
-  
-    <a class="tag-item" href="/tags/server/" title="server">server (7)</a>
-  
-    <a class="tag-item" href="/tags/HTTP/" title="HTTP">HTTP (3)</a>
   
     <a class="tag-item" href="/tags/面试经验/" title="面试经验">面试经验 (1)</a>
   
