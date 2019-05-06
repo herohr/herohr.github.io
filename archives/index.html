@@ -134,6 +134,89 @@
         <!-- 文章标题 -->
         
     <h3 class="post-title">
+    	<a href="/2019/05/06/djangometa/">
+    		Django model中的class Meta 详解-转自博客园
+    	</a>
+        
+    </h3>
+
+    </header>
+    <p class="post-meta">
+        HeroHR 发表于
+        <time datetime="2019-05-06T06:00:00.000Z">2019-05-06</time>
+        &nbsp;&nbsp;
+        <span class="post-tags">
+            标签：
+            
+    
+        <a href="/tags/python/" title="python">python</a> / 
+    
+        <a href="/tags/django/" title="django">django</a>
+    
+
+        </span>
+    </p>
+
+    <div class="post-content">
+        <div class="post-excerpt">
+            
+                <h4 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h4><p>通过一个内嵌类 “class Meta” 给你的 model 定义元数据, 类似下面这样:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Foo</span><span class="params">(models.Model)</span>:</span> </span><br><span class="line">    bar = models.CharField(maxlength=<span class="number">30</span>)</span><br><span class="line"></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Meta</span>:</span> </span><br><span class="line">        <span class="comment"># ...</span></span><br></pre></td></tr></table></figure>
+<p>Model 元数据就是 “不是一个字段的任何数据” – 比如排序选项, admin 选项等等.</p>
+<p>下面是所有可能用到的 Meta 选项. 没有一个选项是必需的. 是否添加 class Meta 到你的 model 完全是可选的.</p>
+<h2 id="app-label"><a href="#app-label" class="headerlink" title="app_label"></a>app_label</h2><p>app_label这个选项只在一种情况下使用，就是你的模型类不在默认的应用程序包下的models.py文件中，这时候你需要指定你这个模型类是那个应用程序的。比如你在其他地方写了一个模型类，而这个模型类是属于myapp的，那么你这是需要指定为：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">app_label=<span class="string">'myapp'</span></span><br></pre></td></tr></table></figure>
+<h2 id="db-table"><a href="#db-table" class="headerlink" title="db_table"></a>db_table</h2><p>db_table是用于指定自定义数据库表名的。Django有一套默认的按照一定规则生成数据模型对应的数据库表名，如果你想使用自定义的表名，就通过这个属性指定，比如：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">table_name=<span class="string">'my_owner_table'</span></span><br></pre></td></tr></table></figure>
+<p>若不提供该参数, Django 会使用 app_label + ‘_’ + module_name 作为表的名字.</p>
+<p>若你的表的名字是一个 SQL 保留字, 或包含 Python 变量名不允许的字符–特别是连字符 –没关系. Django 会自动在幕后替你将列名字和表名字用引号引起来.</p>
+<h2 id="db-tablespace"><a href="#db-tablespace" class="headerlink" title="db_tablespace"></a>db_tablespace</h2><p>有些数据库有数据库表空间，比如Oracle。你可以通过db_tablespace来指定这个模型对应的数据库表放在哪个数据库表空间。</p>
+<h2 id="get-latest-by"><a href="#get-latest-by" class="headerlink" title="get_latest_by"></a>get_latest_by</h2><p>由于Django的管理方法中有个lastest()方法，就是得到最近一行记录。如果你的数据模型中有 DateField 或 DateTimeField 类型的字段，你可以通过这个选项来指定lastest()是按照哪个字段进行选取的。</p>
+<p>一个 DateField 或 DateTimeField 字段的名字. 若提供该选项, 该模块将拥有一个 get_latest() 函数以得到 “最新的” 对象(依据那个字段):</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">get_latest_by = <span class="string">"order_date"</span></span><br></pre></td></tr></table></figure>
+<h2 id="managed"><a href="#managed" class="headerlink" title="managed"></a>managed</h2><p>由于Django会自动根据模型类生成映射的数据库表，如果你不希望Django这么做，可以把managed的值设置为False。</p>
+<p>默认值为True,这个选项为True时Django可以对数据库表进行 migrate或migrations、删除等操作。在这个时间Django将管理数据库中表的生命周期</p>
+<p>如果为False的时候，不会对数据库表进行创建、删除等操作。可以用于现有表、数据库视图等，其他操作是一样的。</p>
+<h2 id="order-with-respect-to"><a href="#order-with-respect-to" class="headerlink" title="order_with_respect_to"></a>order_with_respect_to</h2><p>这个选项一般用于多对多的关系中，它指向一个关联对象。就是说关联对象找到这个对象后它是经过排序的。指定这个属性后你会得到一个get_XXX_order()和set_XXX_order（）的方法,通过它们你可以设置或者回去排序的对象。</p>
+<p>举例来说, 如果一个 PizzaToppping 关联到一个 Pizza 对象, 这样做:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">order_with_respect_to = <span class="string">'pizza'</span></span><br></pre></td></tr></table></figure>
+<p>…就允许 toppings 依照相关的 pizza 来排序.</p>
+<h2 id="ordering"><a href="#ordering" class="headerlink" title="ordering"></a>ordering</h2><p>这个字段是告诉Django模型对象返回的记录结果集是按照哪个字段排序的。比如下面的代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">ordering=[<span class="string">'order_date'</span>] </span><br><span class="line"><span class="comment"># 按订单升序排列</span></span><br><span class="line">ordering=[<span class="string">'-order_date'</span>] </span><br><span class="line"><span class="comment"># 按订单降序排列，-表示降序</span></span><br><span class="line">ordering=[<span class="string">'?order_date'</span>] </span><br><span class="line"><span class="comment"># 随机排序，？表示随机</span></span><br><span class="line">ordering = [<span class="string">'-pub_date'</span>, <span class="string">'author'</span>]</span><br><span class="line"><span class="comment"># 对 pub_date 降序,然后对 author 升序</span></span><br></pre></td></tr></table></figure>
+<p><strong>需要注意的是:不论你使用了多少个字段排序, admin 只使用第一个字段</strong></p>
+<h2 id="permissions"><a href="#permissions" class="headerlink" title="permissions"></a>permissions</h2><p>permissions主要是为了在Django Admin管理模块下使用的，如果你设置了这个属性可以让指定的方法权限描述更清晰可读。</p>
+<p>要创建一个对象所需要的额外的权限. 如果一个对象有 admin 设置, 则每个对象的添加,删除和改变权限会人(依据该选项)自动创建.下面这个例子指定了一个附加权限: can_deliver_pizzas:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">permissions = ((<span class="string">"can_deliver_pizzas"</span>, <span class="string">"Can deliver pizzas"</span>),)</span><br></pre></td></tr></table></figure>
+<p>这是一个2-元素 tuple 的tuple或列表, 其中两2-元素 tuple 的格式为:(permission_code, human_readable_permission_name).</p>
+<h2 id="unique-together"><a href="#unique-together" class="headerlink" title="unique_together"></a>unique_together</h2><p>unique_together这个选项用于：当你需要通过两个字段保持唯一性时使用。这会在 Django admin 层和数据库层同时做出限制(也就是相关的 UNIQUE 语句会被包括在 CREATE TABLE 语句中)。比如：一个Person的FirstName和LastName两者的组合必须是唯一的，那么需要这样设置：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">unique_together = ((<span class="string">"first_name"</span>, <span class="string">"last_name"</span>),)</span><br></pre></td></tr></table></figure>
+<h2 id="verbose-name"><a href="#verbose-name" class="headerlink" title="verbose_name"></a>verbose_name</h2><p>verbose_name的意思很简单，就是给你的模型类起一个更可读的名字：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">verbose_name = <span class="string">"pizza"</span></span><br></pre></td></tr></table></figure>
+<p>若未提供该选项, Django 则会用一个类名字的 munged 版本来代替: <code>CamelCase becomes camel case</code>.</p>
+<h2 id="verbose-name-plural"><a href="#verbose-name-plural" class="headerlink" title="verbose_name_plural"></a>verbose_name_plural</h2><p>这个选项是指定，模型的复数形式是什么，比如：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">verbose_name_plural = <span class="string">"stories"</span></span><br></pre></td></tr></table></figure>
+<p>若未提供该选项, Django 会使用 verbose_name + “s”.</p>
+<p>s</p>
+
+            
+            <p class="more">
+                <a href="/2019/05/06/djangometa/">阅读剩下更多</a>
+            </p>
+        </div>
+    </div>
+</article>
+
+    
+        <!-- 文章列表 item -->
+<article class="post">
+    <header>
+        <!-- 标签这有且只能显示一个 -->
+        
+            <a href="javascript: void(0);" class="cat">未分类</a>
+        
+        <!-- 文章标题 -->
+        
+    <h3 class="post-title">
     	<a href="/2019/04/06/Oauth2/">
     		OAuth2.0 简析（一）
     	</a>
@@ -526,52 +609,6 @@
             
             </p><p class="more">
                 <a href="/2017/11/26/pythonC2/">阅读剩下更多</a>
-            </p>
-        </div>
-    </div>
-</article>
-
-    
-        <!-- 文章列表 item -->
-<article class="post">
-    <header>
-        <!-- 标签这有且只能显示一个 -->
-        
-        <a class="cat-link" href="/categories/编程/">编程</a>
-        
-        <!-- 文章标题 -->
-        
-    <h3 class="post-title">
-    	<a href="/2017/10/16/pythonC1/">
-    		Python并发编程（一）——线程池
-    	</a>
-        
-    </h3>
-
-    </header>
-    <p class="post-meta">
-        HeroHR 发表于
-        <time datetime="2017-10-15T16:00:00.000Z">2017-10-16</time>
-        &nbsp;&nbsp;
-        <span class="post-tags">
-            标签：
-            
-    
-        <a href="/tags/server/" title="server">server</a> / 
-    
-        <a href="/tags/python/" title="python">python</a>
-    
-
-        </span>
-    </p>
-
-    <div class="post-content">
-        <div class="post-excerpt">
-            
-                <h3 id="Python并发库concurrent-futures"><a href="#Python并发库concurrent-futures" class="headerlink" title="Python并发库concurrent.futures"></a>Python并发库<a href="https://web.archive.org/web/20180814042715/https://docs.python.org/3/library/concurrent.futures.html?highlight=concurrent#module-concurrent.futures" target="_blank" rel="noopener"><code>concurrent.futures</code></a></h3><p>Python的多线程与多进程库threading和multiprocess库提供了简单的并发封装。但是我们在高并发的情况下，往往需要限制线程数和进程数。<code>concurrent.futures</code>库提供了非常好用的线程进程池，我认为是可以代替threading库和multiprocess库了！
-            
-            </p><p class="more">
-                <a href="/2017/10/16/pythonC1/">阅读剩下更多</a>
             </p>
         </div>
     </div>
